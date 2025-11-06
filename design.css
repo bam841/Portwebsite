@@ -1,0 +1,163 @@
+/* Reset default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Overall page style */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a37d7d;
+    background: #f8f9fc;
+    line-height: 1.6;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Hover underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: rgb(62, 13, 13);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #e0e0e0;
+}
+
+/* Home Section */
+#Home-portfolio {
+    background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+    color: #222;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+#Home-portfolio h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+#Home-portfolio p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* About Section */
+#aboutMe {
+    padding: 5rem 3rem;
+    background: white;
+    text-align: center;
+}
+
+.AboutMeTitle {
+    font-size: 2rem;
+    color: #764ba2;
+    margin-bottom: 1.5rem;
+}
+
+#aboutMe p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    background: #f0f0ff;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { transform: translateY(-40x); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    #Home-portfolio {
+        padding: 4rem 1rem;
+    }
+
+    #aboutMe {
+        padding: 3rem 1rem;
+    }
+}
