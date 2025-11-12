@@ -23,18 +23,19 @@ nav a{
 }
 /* Targets only the paragraph inside Home-portfolio section */
 #Home-portfolio p {
-    background-color: #b6b8be; /* light gray background */
-    padding: 45px;  
-    border-radius: 50px;          /* space around text */
+    /* light gray background */
+            /* space around text */
     font-size: 18px;          /* text size */
     line-height: 1.8;         /* spacing between lines */
-    color: #555;              /* text color */
+               /* text color */
     max-width: 600px;         /* optional: limit width for readability */
     margin: 20px auto;        /* center horizontally */
     text-align: center;       /* center text */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* optional font */
 }
 #Home-portfolio {
-     /* light background for the section */
+    
+    background:linear-gradient(50deg,#bdbfc6,rgb(176, 140, 229));
+    padding: 20px;
 }
 
