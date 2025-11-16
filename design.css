@@ -1,56 +1,86 @@
-header{
-    background: linear-gradient(50deg ,#41455d,#764ba2);
-    color:rgb(225, 209, 209);
-    justify-content: space-between;
-    display: flex;
-    padding :10px;
-    align-items: center; 
-    
+header {
+    background: linear-gradient(50deg, #41455d, #764ba2); /* Creates a gradient background from dark blue-gray to purple */
+    color: rgb(225, 209, 209);                           /* Sets the text color inside header to a light gray */
+    justify-content: space-between;                      /* Distributes space between flex items, pushing them to the edges */
+    display: flex;                                       /* Makes the header a flex container for layout control */
+    padding: 10px;                                       /* Adds 10px space inside the header on all sides */
+    align-items: center;                                 /* Vertically centers items inside the flex container */
 }
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:2rem;  
+
+nav ul {
+    display: flex;                                       /* Makes the unordered list a flex container */
+    list-style: none;                                    /* Removes default bullet points from the list */
+    gap: 2rem;                                          /* Adds 2 rem (approx 32px) space between each list item */
 }
-h3{
-    text-align:center;
-    font-size: 50px;
-} 
-nav a{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+
+h3 {
+    text-align: center;                                  /* Centers text horizontally inside h3 elements */
+    font-size: 50px;                                     /* Sets the font size of h3 text to 50 pixels */
 }
-/* Targets only the paragraph inside Home-portfolio section */
+
+nav a {
+    color: white;                                        /* Sets the link text color to white */
+    text-decoration: none;                               /* Removes underline from links */
+    font-weight: bold;                                   /* Makes the link text bold */
+}
+
+/* Targets only the paragraph inside the element with id "Home-portfolio" */
 #Home-portfolio p {
-    /* light gray background */
-            /* space around text */
-    font-size: 18px;          /* text size */
-    line-height: 1.8;         /* spacing between lines */
-               /* text color */
-    max-width: 600px;         /* optional: limit width for readability */
-    margin: 20px auto;        /* center horizontally */
-    text-align: center;       /* center text */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* optional font */
+    font-size: 18px;                                     /* Sets font size to 18 pixels */
+    line-height: 1.8;                                    /* Increases space between lines for readability */
+    max-width: 600px;                                    /* Limits paragraph width to 600 pixels for easier reading */
+    margin: 20px auto;                                   /* Adds 20px top/bottom margin and centers horizontally */
+    text-align: center;                                  /* Centers text inside the paragraph */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets a clean, sans-serif font stack */
 }
+
 #Home-portfolio {
-    
-    background:linear-gradient(50deg,#bdbfc6,rgb(176, 140, 229));
-    padding: 20px;
+    background: linear-gradient(50deg, #bdbfc6, rgb(176, 140, 229)); /* Creates a purple gradient background */
+    padding: 20px;                                      /* Adds 20px padding inside the section */
 }
 
 .cta-button {
-    /* ... existing styles ... */
-    display: block;      /* 1. Make the button take up its own line */
-    width: fit-content;  /* 2. Make it only as wide as its content */
-    margin: 0 auto;
-    background-color: #bdbfc6;  
-    text-decoration: none;
-    border-radius: 85px;
-    padding: 1rem;
-        /* 3. Center the block on the available space */
+    display: block;                                     /* Makes the button behave like a block element (full width by default) */
+    width: fit-content;                                 /* Shrinks the button width to fit the text content */
+    margin: 0 auto;                                     /* Centers the button horizontally */
+    background-color: #bdbfc6;                          /* Gives the button a light gray-purple background */
+    text-decoration: none;                              /* Removes underline from the button text */
+    border-radius: 85px;                                /* Makes the button edges very rounded */
+    padding: 1rem;                                      /* Adds padding inside the button for spacing */
 }
-.cta-button:hover{
-    background-color: aliceblue;
-    transform: translateY(-1px);
+
+.cta-button:hover {
+    background-color: aliceblue;                        /* Changes button background to a light blue on hover */
+    transform: translateY(-1px);                        /* Moves the button 1px upward on hover for a subtle effect */
 }
+
+.AboutMeTitle {
+    color: #764ba2;                                     /* Sets the About Me title color to purple */
+    display: block;                                     /* Makes the title a block element */
+    width: fit-content;                                 /* Shrinks the width to fit the content */
+    margin: 0 auto;                                     /* Centers the title horizontally */
+}
+
+#aboutMe p {
+    color: rgb(237, 237, 237);                          /* Sets paragraph text to a very light gray */
+    background-color: #83488fb2;                        /* Gives paragraph a semi-transparent purple background */
+    padding: 1rem;                                      /* Adds padding inside the paragraph */
+    border-radius: 20px;                                /* Rounds the corners of the background */
+    width: fit-content;                                 /* Shrinks the paragraph width to fit its content */
+    margin: 0 auto;                                     /* Centers the paragraph horizontally */
+    text-align: center;                                 /* Centers the text inside the paragraph */
+    max-width: 800px;                                   /* Limits maximum width to 800px */
+}
+
+.WebpagePic {
+    height: auto;                                       /* Allows the image height to adjust automatically */
+    width: 200px;                                       /* Sets the image width to 200 pixels */
+    border-radius: 20px;                                /* Rounds the corners of the image */
+}
+
+.introContainer {
+    margin: 0 auto;                                     /* Centers the container horizontally within its parent */
+    display: flex;                                      /* Makes the container a flexbox for layout */
+    align-items: center;                                /* Vertically centers the items inside the container */
+    gap: 40px;                                          /* Adds 40 pixels space between the flex items */
+    justify-content: center;                            /* Horizontally centers the items inside the container */
