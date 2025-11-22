@@ -55,27 +55,17 @@ nav a {
 }
 
 .AboutMeTitle {
-    color: #764ba2;                                     /* Sets the About Me title color to purple */
+    color: #cfc9d5;                                     /* Sets the About Me title color to purple */
     display: block;                                     /* Makes the title a block element */
     width: fit-content;                                 /* Shrinks the width to fit the content */
     margin: 0 auto;                                     /* Centers the title horizontally */
 }
 
-#aboutMe p {
-    color: rgb(237, 237, 237);                          /* Sets paragraph text to a very light gray */
-    background-color: #83488fb2;                        /* Gives paragraph a semi-transparent purple background */
-    padding: 1rem;                                      /* Adds padding inside the paragraph */
-    border-radius: 20px;                                /* Rounds the corners of the background */
-    width: fit-content;                                 /* Shrinks the paragraph width to fit its content */
-    margin: 0 auto;                                     /* Centers the paragraph horizontally */
-    text-align: center;                                 /* Centers the text inside the paragraph */
-    max-width: 800px;                                   /* Limits maximum width to 800px */
-}
 
 .WebpagePic {
     height: auto;                                       /* Allows the image height to adjust automatically */
     width: 200px;                                       /* Sets the image width to 200 pixels */
-    border-radius: 20px;                                /* Rounds the corners of the image */
+    border-radius: 50%;                                /* Rounds the corners of the image */
 }
 
 .introContainer {
@@ -83,4 +73,34 @@ nav a {
     display: flex;                                      /* Makes the container a flexbox for layout */
     align-items: center;                                /* Vertically centers the items inside the container */
     gap: 40px;                                          /* Adds 40 pixels space between the flex items */
-    justify-content: center;                            /* Horizontally centers the items inside the container */
+    justify-content: center; 
+    
+    
+}/* Horizontally centers the items inside the container */
+/*ths is for the view works button whenever it is hivered in the mouse*/
+#viewWorks{
+    padding:50px;
+    transform: translateY(-1px);
+
+}
+/*this is for styling the about me section*/
+#aboutMe{
+    background: linear-gradient(80deg, #7a8dd3, rgb(190, 163, 230));
+
+    max-width: fit-content;
+    border-radius: 20px;
+    font-size: 18px;                                     /* Sets font size to 18 pixels */
+    line-height: 1.8;                                    /* Increases space between lines for readability */
+    max-width: 900px;                                    /* Limits paragraph width to 600 pixels for easier reading */
+    margin: 0px auto;                                   /* Adds 20px top/bottom margin and centers horizontally */
+    text-align: center;                                  /* Centers text inside the paragraph */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
+}
+#skills{
+    display:flex;
+    margin: 0 auto;
+
+}
+
+
