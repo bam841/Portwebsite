@@ -102,5 +102,26 @@ nav a {
     margin: 0 auto;
 
 }
+.py{
+ background-color: bisque;
+ padding:12px;
+ border-radius: 20px;
+ width: fit-content;
+
+
+}
+.jv{
+    background-color: bisque;
+    padding:12px;
+    border-radius: 20px;
+    width: fit-content;
+
+}
+#showCaseSkilss{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center; 
+}
 
 
