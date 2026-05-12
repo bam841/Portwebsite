@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bam’s Creative Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4" />
+  <style>
+    /* Hero wave background custom shape */
+    .hero-wave {
+      position: absolute; left:0; right:0; top:0; z-index:-1;
+      width: 100vw; height: 300px; background: var(--accent);
+      clip-path: polygon(0 0,100% 0,100% 56%,72% 97%,41% 80%,0 100%);
+    }
+    @media(max-width: 700px){.hero-wave{height:180px;}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Bam’s<span class="accent">Portfolio</span></div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero-wave"></div>
+
+  <main class="container">
+    <section id="about">
+      <img src="https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4" alt="Profile Picture" class="profile-img" />
+      <h1>Hi, I’m <span class="accent">Bam</span>.<br />Web Designer & Frontend Dev</h1>
+      <div class="subtitle">Turning ideas into engaging, beautiful websites — ready to impress your clients.</div>
+      <p style="text-align:center;max-width:580px;margin:0 auto 1.9rem;color:#546e7a;font-size:1.09rem">I create clean, modern, and fully responsive portfolio and business sites using HTML, CSS, and the latest design trends. If you need a standout web presence to win customers, let’s collaborate!</p>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Artisan Portfolio</h3>
+          <p>A custom landing page for a freelance visual artist, featuring bespoke gallery filtering and unique branding.</p>
+          <a href="#">View Live</a>
+        </div>
+        <div class="project-card">
+          <h3>Business Brochure Site</h3>
+          <p>Responsive website for a start-up, with custom contact form and subtle CSS reveal animations.</p>
+          <a href="#">View Live</a>
+        </div>
+        <div class="project-card">
+          <h3>Modern Blog Template</h3>
+          <p>Clean, SEO-friendly template crafted for writers or agencies who want a minimal, professional vibe.</p>
+          <a href="#">View Live</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Core Skills</h2>
+      <div class="skills-list">
+        <div>HTML5 &amp; CSS3</div>
+        <div>Responsive Design</div>
+        <div>Figma/Adobe XD</div>
+        <div>Git &amp; Version Control</div>
+        <div>Landing Pages</div>
+        <div>Portfolio Sites</div>
+        <div>SEO Basics</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/">WhatsApp</a>
+      </div>
+      <div style="margin-top:1rem; color:#768b9e;font-size:0.96rem">Available for commissions & collaborations 🚀</div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Bam. Designed with ❤️ for your next project.
+  </footer>
+
+</body>
+</html>
