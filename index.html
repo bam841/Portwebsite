@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bam’s Creative Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Bam – Creative Front-End Portfolio</title>
+  <meta name="description" content="Premium advanced web developer portfolio of Bam. Modern, dark, animated, unique, and responsive with jaw-dropping UI/UX." />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4" />
-  <style>
-    /* Hero wave background custom shape */
-    .hero-wave {
-      position: absolute; left:0; right:0; top:0; z-index:-1;
-      width: 100vw; height: 300px; background: var(--accent);
-      clip-path: polygon(0 0,100% 0,100% 56%,72% 97%,41% 80%,0 100%);
-    }
-    @media(max-width: 700px){.hero-wave{height:180px;}}
-  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Bam’s<span class="accent">Portfolio</span></div>
+
+  <div class="hero-bg-glow" style="left:50%;top:-15vw;">
+    <div class="circle"></div>
+  </div>
+
+  <header class="header">
+    <nav class="nav">
+      <span class="logo">Bam<span style="color:var(--accent)">.</span></span>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -32,64 +29,144 @@
     </nav>
   </header>
 
-  <div class="hero-wave"></div>
-
-  <main class="container">
-    <section id="about">
-      <img src="https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4" alt="Profile Picture" class="profile-img" />
-      <h1>Hi, I’m <span class="accent">Bam</span>.<br />Web Designer & Frontend Dev</h1>
-      <div class="subtitle">Turning ideas into engaging, beautiful websites — ready to impress your clients.</div>
-      <p style="text-align:center;max-width:580px;margin:0 auto 1.9rem;color:#546e7a;font-size:1.09rem">I create clean, modern, and fully responsive portfolio and business sites using HTML, CSS, and the latest design trends. If you need a standout web presence to win customers, let’s collaborate!</p>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Artisan Portfolio</h3>
-          <p>A custom landing page for a freelance visual artist, featuring bespoke gallery filtering and unique branding.</p>
-          <a href="#">View Live</a>
+  <main>
+    <section class="hero" id="home">
+      <h1 class="hero-title" data-text="Bam Zapico – Creative Front-end & UI Developer">Bam Zapico – Creative Front-end & UI Developer</h1>
+      <div class="hero-desc">Turning vision into visual experience. I design & build unique sites with cinematic UI, premium animation, and top-tier performance.
+      <br><br>Available for commissions & freelance.</div>
+      <div class="hero-cta">
+        <a href="#contact">Let's Work Together →</a>
+      </div>
+      <div class="counters">
+        <div class="counter-wrap">
+          <div class="counter" data-target="24">0</div>
+          <div class="counter-desc">Projects<br>Built</div>
         </div>
-        <div class="project-card">
-          <h3>Business Brochure Site</h3>
-          <p>Responsive website for a start-up, with custom contact form and subtle CSS reveal animations.</p>
-          <a href="#">View Live</a>
+        <div class="counter-wrap">
+          <div class="counter" data-target="100">0</div>
+          <div class="counter-desc">UI<br>Animations</div>
         </div>
-        <div class="project-card">
-          <h3>Modern Blog Template</h3>
-          <p>Clean, SEO-friendly template crafted for writers or agencies who want a minimal, professional vibe.</p>
-          <a href="#">View Live</a>
+        <div class="counter-wrap">
+          <div class="counter" data-target="12">0</div>
+          <div class="counter-desc">Happy<br>Clients</div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Core Skills</h2>
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-date">2026</span>
+          <div class="timeline-head">Portfolio Launch</div>
+          <div>Bam releases the next-level web portfolio for creative commissions and client work.</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-date">2024–2026</span>
+          <div class="timeline-head">Web Design Student</div>
+          <div>Mastering visual hierarchy, smooth UX, and interactive front-end at university & real-world freelance gigs.</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <span class="timeline-date">2022+</span>
+          <div class="timeline-head">Coding & UI Enthusiast</div>
+          <div>Experimenting with HTML, CSS, JavaScript, and creative motion. Always learning, always leveling up.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
       <div class="skills-list">
-        <div>HTML5 &amp; CSS3</div>
-        <div>Responsive Design</div>
-        <div>Figma/Adobe XD</div>
-        <div>Git &amp; Version Control</div>
-        <div>Landing Pages</div>
-        <div>Portfolio Sites</div>
-        <div>SEO Basics</div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">HTML&nbsp;5</span>
+          <span class="skill-bar-fill" data-value="93"></span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">CSS&nbsp;3 / SASS</span>
+          <span class="skill-bar-fill" data-value="87"></span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">JavaScript&nbsp;(ES6+)</span>
+          <span class="skill-bar-fill" data-value="79"></span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">GSAP / Animation</span>
+          <span class="skill-bar-fill" data-value="77"></span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">UI/UX Design</span>
+          <span class="skill-bar-fill" data-value="88"></span>
+        </div>
+        <div class="skill-bar">
+          <span class="skill-bar-label">React.js</span>
+          <span class="skill-bar-fill" data-value="69"></span>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:your.email@example.com">Email</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://wa.me/">WhatsApp</a>
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="projects-showcase">
+        <div class="project-card">
+          <div class="glow"></div>
+          <div class="project-preview"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Web App" /></div>
+          <h3>Client Portfolio Light</h3>
+          <p>Showcase site for a freelance designer. Cinematic animation, glassmorphism, filterable grid, and modal gallery.</p>
+          <div class="project-meta">2026 • Front-end • UI Motion</div>
+          <div class="project-links">
+            <a href="#">Live Demo</a>
+            <a href="#">Source</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="glow"></div>
+          <div class="project-preview"><img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=600&q=80" alt="Web App" /></div>
+          <h3>SaaS Landing</h3>
+          <p>Futuristic site for a tech SaaS. Hero parallax, scroll-reveal, animated navbar, and glowing controls.</p>
+          <div class="project-meta">2026 • Responsive • Parallax • Glass UI</div>
+          <div class="project-links">
+            <a href="#">Live Demo</a>
+            <a href="#">Source</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="glow"></div>
+          <div class="project-preview"><img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=600&q=80" alt="Web App" /></div>
+          <h3>Animated Personal Blog</h3>
+          <p>Next-level blog template with premium section transitions, sticky nav, and dynamic scroll momentum effect.</p>
+          <div class="project-meta">2025 • Blog • Animation • Next.js</div>
+          <div class="project-links">
+            <a href="#">Live Demo</a>
+            <a href="#">Source</a>
+          </div>
+        </div>
       </div>
-      <div style="margin-top:1rem; color:#768b9e;font-size:0.96rem">Available for commissions & collaborations 🚀</div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <form class="contact-form" autocomplete="off" spellcheck="false" action="#" method="post">
+        <label>Name
+          <input type="text" name="name" required placeholder="Your Name" />
+        </label>
+        <label>Email
+          <input type="email" name="email" required placeholder="your@email.com" />
+        </label>
+        <label>Message
+          <textarea name="message" required rows="4" placeholder="Tell me about your project..."></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+        <div class="success" style="display:none;">Sent! I will reply soon.</div>
+        <div class="error" style="display:none;">Please fill all fields correctly✗</div>
+      </form>
     </section>
   </main>
-
-  <footer>
-    &copy; 2026 Bam. Designed with ❤️ for your next project.
+  <footer style="margin:2rem 0 1rem 0;text-align:center;font-size:1.06rem;color:var(--text-soft);">
+    &copy; 2026 Bam. Designed by Bam with Copilot. All rights reserved.
   </footer>
-
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
