@@ -1,0 +1,647 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- BEGIN: Main Canvas Frame (Full Screen Edge-to-Edge) -->
+<div class="relative w-full min-h-screen bg-slate-900 flex flex-col overflow-x-hidden" data-purpose="portfolio-application-shell">
+
+  <!-- ============================================================== -->
+  <!-- SUBPAGE HEADER (Active on Work, About, Services, Contact tabs)  -->
+  <!-- ============================================================== -->
+  <header class="hidden w-full bg-white border-b border-slate-100 z-30 transition-all duration-300" id="subpage-nav">
+    <div class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-5 flex items-center justify-between">
+      <a class="flex items-center gap-2 group cursor-pointer text-slate-900" onclick="switchTab('home')">
+        <span class="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center text-white text-sm font-black shadow-sm group-hover:scale-105 transition-transform">B</span>
+        <span class="text-xl font-extrabold tracking-tight font-sans">{{ profile.short_name }}<span class="text-orange-600">.</span></span>
+      </a>
+
+      <nav class="flex items-center space-x-6 text-xs font-bold tracking-widest uppercase">
+        <button class="sub-nav-home text-slate-600 hover:text-orange-600 transition cursor-pointer" onclick="switchTab('home')" type="button">Home</button>
+        <button class="sub-nav-work text-slate-600 hover:text-orange-600 transition cursor-pointer" onclick="switchTab('work')" type="button">Work</button>
+        <button class="sub-nav-about text-slate-600 hover:text-orange-600 transition cursor-pointer" onclick="switchTab('about')" type="button">About</button>
+        <button class="sub-nav-services text-slate-600 hover:text-orange-600 transition cursor-pointer" onclick="switchTab('services')" type="button">Services</button>
+        <button class="sub-nav-contact text-slate-600 hover:text-orange-600 transition cursor-pointer" onclick="switchTab('contact')" type="button">Contact</button>
+      </nav>
+
+      <button class="hidden sm:inline-flex items-center gap-2 bg-orange-600 text-white font-semibold text-xs px-5 py-2.5 rounded-full hover:bg-orange-700 transition shadow-sm cursor-pointer" onclick="switchTab('contact')">
+        <span>Get in Touch</span>
+        <span>→</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- TAB VIEW 1: HOME HERO VIEW (Split Orange & Pure White)        -->
+  <!-- ============================================================== -->
+  <div class="tab-pane active relative w-full flex flex-col justify-between" id="tab-home">
+    
+    <!-- SECTION A: Split Hero Fold -->
+    <div class="relative w-full min-h-screen bg-gradient-mesh overflow-hidden flex flex-col justify-between">
+      <!-- Decorative contours -->
+      <div class="contour-circle-1"></div>
+      <div class="contour-circle-2"></div>
+
+      <!-- Top Navigation Header Inside Hero -->
+      <header class="relative z-30 w-full max-w-7xl mx-auto flex items-center justify-between pt-8 px-6 sm:px-10 lg:px-12" data-purpose="top-navigation-bar">
+        <!-- Brand Logo -->
+        <a aria-label="Homepage" class="flex items-center gap-2 text-white group cursor-pointer" onclick="switchTab('home')">
+          <span class="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm font-black border border-white/30 group-hover:scale-105 transition-transform">B</span>
+          <span class="text-2xl font-bold tracking-tight text-white font-sans">{{ profile.display_name }}</span>
+        </a>
+
+        <!-- Right Nav pill overlay aligned into the white card block -->
+        <nav class="hidden md:flex items-center bg-white px-7 py-3 rounded-full shadow-lg space-x-7 text-[11px] font-bold tracking-[0.16em] text-slate-700" data-purpose="nav-links">
+          <button class="nav-btn hover:text-orange-600 transition-colors uppercase cursor-pointer" onclick="switchTab('work')" type="button">WORK</button>
+          <button class="nav-btn hover:text-orange-600 transition-colors uppercase cursor-pointer" onclick="scrollToAboutMonitor()" type="button">ABOUT</button>
+          <button class="nav-btn hover:text-orange-600 transition-colors uppercase cursor-pointer" onclick="switchTab('services')" type="button">SERVICES</button>
+          <button class="nav-btn hover:text-orange-600 transition-colors uppercase cursor-pointer" onclick="switchTab('contact')" type="button">CONTACT</button>
+          <a href="{{ socials.github }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition-colors" title="GitHub Profile">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </nav>
+      </header>
+
+      <!-- Hero Split Canvas Layer -->
+      <div class="absolute inset-0 z-0 flex pointer-events-none" data-purpose="split-background-canvas">
+        <div class="w-1/2 h-full"></div>
+        <div class="w-1/2 h-full bg-white relative rounded-tl-[48px] pointer-events-auto shadow-[-20px_0_40px_rgba(0,0,0,0.06)]"></div>
+      </div>
+
+      <!-- Central Hero Image with Modern Architectural Capsule Frame -->
+      <div class="absolute bottom-6 sm:bottom-8 md:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 z-10 select-none flex justify-center items-end" data-purpose="hero-portrait-frame">
+        <div class="relative group">
+          <!-- Frame Outer Shell -->
+          <div class="hero-frame-container w-[260px] sm:w-[310px] md:w-[350px] lg:w-[370px] h-[380px] sm:h-[440px] md:h-[480px] lg:h-[500px] rounded-[36px] p-2.5 sm:p-3 bg-white/40 backdrop-blur-xl border-2 border-white/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.22)] overflow-hidden transition-all duration-500 hover:shadow-orange-500/20 hover:border-white">
+            
+            <!-- Inner Photo Container -->
+            <div class="w-full h-full rounded-[26px] overflow-hidden bg-slate-900 relative">
+              <img 
+                alt="{{ profile.name }} portrait" 
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" 
+                src="{{ profile.hero_image or url_for('static', filename='img/newprofile_card.jpg') }}"
+              />
+              <!-- Subtle Bottom Gradient to blend into card -->
+              <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+
+          <!-- Floating Accent Badge -->
+          <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-4 py-1.5 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap z-20 transition-transform duration-300 group-hover:scale-105">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-slate-800">{{ profile.name }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Content Container -->
+      <div class="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 h-full items-center px-6 sm:px-10 lg:px-12 pb-12 pt-6 pointer-events-none my-auto">
+        
+        <!-- Left Column (Over Orange Field) -->
+        <div class="md:col-span-5 flex flex-col justify-center items-start pt-6 md:pt-10 pointer-events-auto" data-purpose="hero-left-copy">
+          <h1 class="font-bebas text-white text-[96px] sm:text-[124px] md:text-[144px] lg:text-[168px] tracking-tight mb-2 select-none drop-shadow-sm">
+            {{ profile.headline }}
+          </h1>
+          <p class="text-white/95 text-base md:text-[17px] font-medium leading-relaxed max-w-xs mb-8">
+            Designs that inspire.<br/>Ideas that connect.
+          </p>
+
+          <!-- CTA Button -->
+          <button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group mb-14 cursor-pointer" onclick="switchTab('work')">
+            <span>View Work</span>
+            <svg class="w-3.5 h-3.5 stroke-current stroke-2 fill-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24">
+              <line x1="7" x2="17" y1="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </button>
+
+          <!-- Social Proof / Trust Line -->
+          <div class="flex flex-col gap-2.5" data-purpose="social-proof-ratings">
+            <div class="flex items-center -space-x-2">
+              <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-800 text-white flex items-center justify-center text-xs font-bold shadow-sm">Py</div>
+              <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-700 text-white flex items-center justify-center text-xs font-bold shadow-sm">JS</div>
+              <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-amber-700 text-white flex items-center justify-center text-xs font-bold shadow-sm">C++</div>
+              <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">SQL</div>
+              <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-950/80 text-white flex items-center justify-center text-[10px] font-bold backdrop-blur-sm">
+                +4
+              </div>
+            </div>
+            <span class="text-white/85 text-[11px] font-medium tracking-tight">
+              {{ profile.trust_line }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Center Spacer Column -->
+        <div class="hidden md:block md:col-span-2"></div>
+
+        <!-- Right Column (Over White Field) -->
+        <div class="md:col-span-5 flex flex-col justify-between items-start md:items-end h-full pt-20 pb-4 pointer-events-auto ml-auto text-left" data-purpose="hero-right-details">
+          
+          <!-- Status Indicator: Available For Projects -->
+          <div class="w-full max-w-[240px] pt-8" data-purpose="availability-badge">
+            <div class="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.14em] uppercase text-orange-600 mb-1">
+              <span>Status</span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+            <h2 class="text-2xl lg:text-[28px] font-extrabold text-slate-900 tracking-tight leading-tight">
+              Available For<br/>Projects &amp; Roles
+            </h2>
+          </div>
+
+          <!-- Endorsement Floating Card -->
+          <div class="w-full max-w-[260px] bg-slate-50/90 hover:bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300" data-purpose="testimonial-card">
+            <div class="text-orange-600 font-serif text-3xl font-black leading-none mb-2">“</div>
+            <p class="text-[12px] leading-relaxed text-slate-600 font-medium mb-3">
+              {{ testimonial.quote }}
+            </p>
+            <div class="flex items-center justify-between pt-1">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-900 block">
+                  {{ testimonial.author }}
+                </span>
+                <span class="text-[9px] text-slate-400 font-semibold block">
+                  {{ testimonial.role }}
+                </span>
+              </div>
+              <img alt="Endorsement" class="w-6 h-6 rounded-full object-cover ring-2 ring-orange-500/20" src="{{ testimonial.avatar }}"/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Floating scroll prompt -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 pointer-events-auto cursor-pointer group" onclick="scrollToAboutMonitor()">
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 group-hover:text-orange-600 transition-colors">Scroll to explore Workstation</span>
+        <div class="w-5 h-8 rounded-full border border-slate-300 flex items-start justify-center p-1 bg-white/70 backdrop-blur-sm shadow-sm">
+          <span class="w-1 h-2 rounded-full bg-orange-600 animate-bounce"></span>
+        </div>
+      </div>
+    </div>
+    <!-- END: SECTION A -->
+
+    <!-- ============================================================== -->
+    <!-- SECTION B: INTERACTIVE 3D MONITOR / ABOUT ME SECTION           -->
+    <!-- ============================================================== -->
+    <section class="relative w-full min-h-screen bg-[#0d0f14] overflow-hidden flex flex-col items-center justify-center py-16 px-0 border-t border-white/5 transition-all duration-700" id="section-about-monitor">
+      
+      <!-- Deep ambient glow & Studio background elements -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="ambient-orange-spotlight absolute top-12 left-1/2 -translate-x-1/2 w-[980px] h-[700px] blur-3xl opacity-60"></div>
+        <div class="absolute -bottom-20 right-10 w-[500px] h-[500px] rounded-full bg-orange-600/10 blur-[130px]"></div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.035] whitespace-nowrap font-syne text-[18vw] font-black text-orange-500 tracking-tighter">
+          BAM
+        </div>
+      </div>
+
+      <div class="relative z-20 w-full flex flex-col items-center justify-center">
+        
+        <!-- Section Intro & Control Bar (fades during full-screen zoom) -->
+        <div class="monitor-intro-bar w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6 mb-6" id="monitor-intro-bar">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+              <span>Interactive 3D Workstation Experience</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+              Workstation &amp; Profile OS
+            </h2>
+            <p class="text-slate-400 text-sm mt-1 max-w-lg">
+              Explore Bam’s background narrative, core development toolchain, projects timeline, and academic competencies inside the display.
+            </p>
+          </div>
+
+          <!-- 3D Perspective Controls -->
+          <div class="flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
+            <button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-orange-600 transition-all shadow-md cursor-pointer" id="btn-ang" onclick="setMonitorState('angled')" type="button">
+              Perspective 3D
+            </button>
+            <button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer" id="btn-front" onclick="setMonitorState('front')" type="button">
+              Front Facing
+            </button>
+            <button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer" id="btn-tilt" onclick="setMonitorState('tilt')" type="button">
+              Tilt View
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Monitor Viewport -->
+        <div class="monitor-viewport w-full max-w-[1080px] flex flex-col items-center select-none" id="monitor-container">
+          
+          <!-- The Monitor Unit (Screen + Bezel) -->
+          <div class="monitor-assembly monitor-state-angled w-full bg-[#0a0a0c] p-3.5 sm:p-4 rounded-[30px] border border-white/15 relative overflow-hidden" id="monitor-box">
+            <!-- Glass Reflection Sheen -->
+            <div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.07] z-30 rounded-[30px]" id="monitor-sheen"></div>
+            <!-- Screen Bezel Camera Dot -->
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-slate-700 ring-1 ring-black z-30" id="monitor-camera"></div>
+
+            <!-- INNER SCREEN DISPLAY -->
+            <div class="screen-inner-scroll w-full bg-[#f8fafc] text-slate-800 rounded-[22px] overflow-hidden shadow-inner flex flex-col border border-slate-200/90 screen-scrollbar overflow-y-auto" id="screen-inner-scroll">
+              
+              <!-- 1. Top Bar / App Header Inside Monitor -->
+              <div class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between gap-4 shadow-sm">
+                <div class="flex items-center gap-6">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white text-xs font-black">B</span>
+                    <span class="font-extrabold text-slate-900 tracking-tight text-base font-sans">{{ profile.name }}</span>
+                    <span class="hidden sm:inline-block text-[10px] text-slate-400 font-semibold uppercase tracking-wider border-l border-slate-200 pl-2">Developer OS</span>
+                  </div>
+                  <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-600">
+                    <a class="hover:text-orange-600 transition text-orange-600 font-extrabold" href="#os-overview">Overview</a>
+                    <a class="hover:text-orange-600 transition" href="#os-what-i-do">What I Do</a>
+                    <a class="hover:text-orange-600 transition" href="#os-experience">Education &amp; Exp</a>
+                    <a class="hover:text-orange-600 transition" href="#os-skills">Tech Stacks</a>
+                  </nav>
+                </div>
+
+                <div class="flex items-center gap-2.5">
+                  <!-- Fullscreen Action Toggle -->
+                  <button id="btn-monitor-toggle" onclick="toggleMonitorFullscreen()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-sm cursor-pointer" title="Expand to Fullscreen">
+                    <span id="monitor-toggle-icon">⤢</span>
+                    <span id="monitor-toggle-text" class="hidden sm:inline">Fullscreen</span>
+                  </button>
+                  <button id="btn-monitor-minimize" onclick="minimizeMonitorFullscreen()" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold transition shadow-sm cursor-pointer" title="Minimize / Back to Home">
+                    <span>⤡</span>
+                    <span>Minimize / Home</span>
+                    <span class="hidden sm:inline-block text-[9px] bg-black/20 px-1.5 py-0.5 rounded font-mono">ESC</span>
+                  </button>
+                  <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-full transition shadow-sm cursor-pointer" onclick="switchTab('contact')">
+                    Get in Touch
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Bio & Narrative Section -->
+              <div class="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-overview">
+                <div class="max-w-4xl mx-auto">
+                  <div class="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 mb-8">
+                    <div class="relative shrink-0">
+                      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden ring-4 ring-orange-500/20 bg-slate-900 shadow-md">
+                        <img alt="{{ profile.name }}" class="w-full h-full object-cover object-top" src="{{ profile.desktop_avatar or profile.avatar }}" onerror="this.onerror=null; this.src='{{ profile.github_avatar }}';"/>
+                      </div>
+                      <div class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-orange-600 text-white font-black text-[9px] uppercase tracking-wider shadow">
+                        BS CS
+                      </div>
+                    </div>
+                    <div>
+                      <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-1.5">
+                        <span>{{ profile.title }}</span>
+                        <span class="text-slate-300">•</span>
+                        <span class="text-slate-500 font-semibold">{{ profile.location }}</span>
+                      </div>
+                      <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                        Hi, I’m John Abrahm Zapico. Building seamless digital realities.
+                      </h3>
+                      <p class="text-slate-600 text-sm sm:text-base leading-relaxed mt-2.5 max-w-2xl font-normal">
+                        {{ profile.bio }}
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Key Metrics Grid -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2">
+                    {% for m in metrics %}
+                    <div class="p-4 rounded-xl {% if loop.index == 2 %}bg-orange-50/60 border border-orange-200/80{% else %}bg-slate-50 border border-slate-200/70{% endif %} hover:border-orange-200 transition">
+                      <span class="text-[11px] font-bold {% if loop.index == 2 %}text-orange-600{% else %}text-slate-400{% endif %} uppercase tracking-wider block">{{ m.label }}</span>
+                      <span class="text-2xl sm:text-3xl font-black {% if loop.index == 2 %}text-orange-600{% else %}text-slate-900{% endif %} mt-1 block">{{ m.value }}</span>
+                      <span class="text-[11px] text-slate-500 font-medium">{{ m.detail }}</span>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. What I Do / Competencies -->
+              <div class="p-6 sm:p-10 md:p-12 bg-slate-50/70 border-b border-slate-100" id="os-what-i-do">
+                <div class="max-w-4xl mx-auto">
+                  <div class="flex items-center justify-between mb-8">
+                    <div>
+                      <span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Core Competencies</span>
+                      <h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">What I Do &amp; How I Build</h4>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-400 hidden sm:inline-block">End-to-End Execution</span>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {% for comp in competencies %}
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 transition duration-200">
+                      <div>
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-black text-base mb-4">
+                          {% if comp.icon == 'layout' %}
+                          <svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><line x1="3" x2="21" y1="9"></line><line x1="9" x2="9" y1="21"></line></svg>
+                          {% elif comp.icon == 'server' %}
+                          <svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                          {% else %}
+                          <svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                          {% endif %}
+                        </div>
+                        <h5 class="text-base font-bold text-slate-900 mb-2 leading-snug">{{ comp.title }}</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">{{ comp.description }}</p>
+                      </div>
+                      <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                        {% for tag in comp.tags %}
+                        <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">{{ tag }}</span>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Experience & Education -->
+              <div class="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-experience">
+                <div class="max-w-4xl mx-auto">
+                  <div class="mb-8">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Timeline</span>
+                    <h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Education &amp; Experience</h4>
+                  </div>
+
+                  <div class="space-y-6">
+                    {% for exp in experience %}
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <div class="text-xs font-bold text-orange-600 uppercase tracking-wider">{{ exp.period }}</div>
+                        <h5 class="text-lg font-extrabold text-slate-900 mt-0.5">{{ exp.role }} • {{ exp.company }}</h5>
+                        <p class="text-xs text-slate-600 mt-1 max-w-xl">{{ exp.description }}</p>
+                      </div>
+                      <div class="shrink-0">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold">Verified</span>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Technical Stacks Grid -->
+              <div class="p-6 sm:p-10 md:p-12 bg-slate-50/50" id="os-skills">
+                <div class="max-w-4xl mx-auto">
+                  <div class="mb-6">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Skills Matrix</span>
+                    <h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Core Technical Stack</h4>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                      <h6 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Programming Languages</h6>
+                      <ul class="space-y-2">
+                        {% for sk in skills.languages %}
+                        <li class="flex items-center justify-between text-xs font-medium text-slate-800">
+                          <span>{{ sk.name }}</span>
+                          <span class="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{{ sk.level }}</span>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                      <h6 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Front-End &amp; UI Motion</h6>
+                      <ul class="space-y-2">
+                        {% for sk in skills.frontend %}
+                        <li class="flex items-center justify-between text-xs font-medium text-slate-800">
+                          <span>{{ sk.name }}</span>
+                          <span class="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{{ sk.level }}</span>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                      <h6 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Backend &amp; Databases</h6>
+                      <ul class="space-y-2">
+                        {% for sk in skills.backend %}
+                        <li class="flex items-center justify-between text-xs font-medium text-slate-800">
+                          <span>{{ sk.name }}</span>
+                          <span class="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{{ sk.level }}</span>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- END INNER SCREEN -->
+
+          </div>
+
+          <!-- Aluminum Stand Assembly -->
+          <div class="monitor-stand-assembly" id="monitor-stand">
+            <div class="w-24 h-16 aluminum-metal -mt-2 z-10 shadow-lg"></div>
+            <div class="w-56 h-3 rounded-full aluminum-base z-20"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+  <!-- END: TAB VIEW 1 -->
+
+  <!-- ============================================================== -->
+  <!-- TAB VIEW 2: WORK / SELECTED PROJECTS                          -->
+  <!-- ============================================================== -->
+  <div class="tab-pane bg-white px-6 sm:px-10 lg:px-16 py-16 md:py-24 min-h-screen" id="tab-work">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-slate-100 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Selected Portfolio</span>
+          <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1">Featured Projects</h2>
+        </div>
+        <p class="text-slate-500 text-sm max-w-sm">Curated web applications, enterprise database systems, and dynamic UI experiences.</p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 gap-12">
+        {% for proj in projects %}
+        <article class="group rounded-3xl bg-slate-900 text-white overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 border border-slate-800">
+          <div class="relative overflow-hidden aspect-[16/9] bg-slate-950">
+            <img alt="{{ proj.title }}" class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition duration-500" src="{{ proj.image }}"/>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="bg-black/70 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-orange-500/20">{{ proj.category }}</span>
+              <span class="bg-black/70 backdrop-blur-md text-slate-200 text-[11px] font-medium px-3 py-1 rounded-full">{{ proj.year }}</span>
+            </div>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gradient-to-b from-slate-900 to-[#121620]">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">{{ proj.title }}</h3>
+              <p class="text-slate-400 text-sm max-w-xl">{{ proj.description }}</p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                {% for tag in proj.tags %}
+                <span class="text-[11px] font-semibold text-slate-300 px-2.5 py-1 rounded bg-white/5 border border-white/10">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+              <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-full transition shadow">
+                <span>View Code</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      <!-- Bottom Work CTA -->
+      <div class="mt-14 p-8 rounded-3xl bg-orange-50 border border-orange-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h4 class="text-xl font-bold text-slate-900">Have an interesting project or opportunity?</h4>
+          <p class="text-sm text-slate-600">Let's connect and build something innovative together.</p>
+        </div>
+        <button class="bg-orange-600 text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:bg-orange-700 transition shadow cursor-pointer" onclick="switchTab('contact')">
+          Initiate Project
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- END: TAB VIEW 2 -->
+
+  <!-- ============================================================== -->
+  <!-- TAB VIEW 3: ABOUT DEDICATED VIEW                              -->
+  <!-- ============================================================== -->
+  <div class="tab-pane bg-white px-6 sm:px-10 lg:px-16 py-16 md:py-24 min-h-screen" id="tab-about">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 pb-6 border-b border-slate-100">
+        <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Background &amp; Philosophy</span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1">About Bam Zapico</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start mb-12">
+        <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+          <img alt="{{ profile.name }}" class="w-full h-auto object-cover" src="{{ profile.about_image or profile.avatar }}" onerror="this.onerror=null; this.src='{{ profile.github_avatar }}';"/>
+        </div>
+        <div class="md:col-span-2 space-y-4 text-slate-600 text-base leading-relaxed">
+          <p class="font-bold text-slate-900 text-lg">
+            "Coding is very fun for me because it allows me to create things from scratch and solve problems creatively."
+          </p>
+          <p>
+            I am a Computer Science graduate from <strong>National University</strong> in the Philippines with a strong foundation in full-stack web engineering, software design, and database systems.
+          </p>
+          <p>
+            Throughout my college years and independent projects, I have developed expertise across multiple languages including <strong>Python, Java, C++, JavaScript (ES6+), PHP, and SQL</strong>. Whether designing responsive frontend user interfaces with modern CSS and Tailwind, or engineering robust backend REST APIs and database models, I focus on delivering clean, maintainable, and high-performance solutions.
+          </p>
+          <div class="pt-4 flex flex-wrap gap-3">
+            <a href="{{ socials.github }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-3 rounded-full transition">
+              <span>Visit GitHub</span>
+              <span>↗</span>
+            </a>
+            <button onclick="switchTab('contact')" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold px-5 py-3 rounded-full transition cursor-pointer">
+              <span>Contact Me</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END: TAB VIEW 3 -->
+
+  <!-- ============================================================== -->
+  <!-- TAB VIEW 4: SERVICES DEDICATED VIEW                           -->
+  <!-- ============================================================== -->
+  <div class="tab-pane bg-white px-6 sm:px-10 lg:px-16 py-16 md:py-24 min-h-screen" id="tab-services">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 pb-6 border-b border-slate-100">
+        <span class="text-xs font-bold uppercase tracking-widest text-orange-600">What I Offer</span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1">Services &amp; Capabilities</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {% for comp in competencies %}
+        <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between hover:border-orange-300 transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center font-black text-lg mb-6">
+              0{{ loop.index }}
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">{{ comp.title }}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">{{ comp.description }}</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200">
+            {% for tag in comp.tags %}
+            <span class="text-xs font-semibold bg-white text-slate-700 px-3 py-1 rounded-lg border border-slate-200">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- END: TAB VIEW 4 -->
+
+  <!-- ============================================================== -->
+  <!-- TAB VIEW 5: CONTACT VIEW (AJAX Connected Form)                 -->
+  <!-- ============================================================== -->
+  <div class="tab-pane bg-white px-6 sm:px-10 lg:px-16 py-16 md:py-24 min-h-screen" id="tab-contact">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-10 pb-6 border-b border-slate-100">
+        <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Get in Touch</span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1">Start a Conversation</h2>
+        <p class="text-slate-500 text-sm mt-2">Have a question or an opportunity? Send a message and it will be saved directly into my database.</p>
+      </div>
+
+      <!-- Real-time Status Message Container -->
+      <div id="contact-status-msg" class="hidden"></div>
+
+      <form id="portfolio-contact-form" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Your Name *</label>
+            <input id="contact-name" class="w-full text-sm bg-slate-50 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="e.g. Alex Santos" required="" type="text"/>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address *</label>
+            <input id="contact-email" class="w-full text-sm bg-slate-50 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="alex@company.com" required="" type="email"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Services Needed</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <label class="flex items-center gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+              <input name="services" value="Full-Stack Web" checked="" class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+              <span>Web Development</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+              <input name="services" value="UI/UX Motion" class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+              <span>UI/UX &amp; Motion</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+              <input name="services" value="Python Backend" class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+              <span>Python Backend</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+              <input name="services" value="Database Systems" class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+              <span>Databases &amp; SQL</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Scope / Project Type</label>
+          <select id="contact-budget" class="w-full text-sm bg-slate-50 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3">
+            <option value="Freelance Web Project">Freelance Web Project</option>
+            <option value="Full-Time Engineering Role">Full-Time Software Engineering Opportunity</option>
+            <option value="Consulting / Collaboration">Consulting / Collaboration</option>
+            <option value="Other Inquiry">Other Inquiry</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Project Brief or Message *</label>
+          <textarea id="contact-brief" class="w-full text-sm bg-slate-50 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="Tell me about your product, project objectives, or timeframe..." rows="4" required=""></textarea>
+        </div>
+
+        <button class="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition duration-200 shadow-md cursor-pointer" type="submit">
+          Send Project Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- END: TAB VIEW 5 -->
+
+</div>
+<!-- END: Main Canvas Frame -->
+{% endblock %}

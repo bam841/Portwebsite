@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>{% block title %}{{ profile.name }} — {{ profile.title }}{% endblock %}</title>
+  <meta name="description" content="{{ profile.sub_tagline }}"/>
+  <link rel="icon" href="{{ profile.github_avatar }}" type="image/png"/>
+
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Bebas Neue, Plus Jakarta Sans, Inter, Syne -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            syne: ['"Syne"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF5E0E',
+              amber: '#E64A00',
+              deep: '#992B00',
+              glow: 'rgba(255, 107, 0, 0.45)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  {% block head %}{% endblock %}
+</head>
+<body class="bg-[#0b0c0e] min-h-screen text-slate-800 flex flex-col font-sans antialiased selection:bg-orange-500 selection:text-white m-0 p-0 overflow-x-hidden">
+  {% block content %}{% endblock %}
+
+  <!-- Core Interactivity -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

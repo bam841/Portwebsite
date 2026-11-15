@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Semaan — Creative Director &amp; Product Designer</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Bebas Neue, Plus Jakarta Sans, Inter, Syne -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            syne: ['"Syne"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF5E0E',
+              amber: '#E64A00',
+              deep: '#992B00',
+              glow: 'rgba(255, 107, 0, 0.45)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-typography-and-effects">
+    .font-bebas {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.03em;
+      line-height: 0.88;
+    }
+    .glow-button {
+      box-shadow: 0 10px 30px -5px rgba(255, 100, 20, 0.45), 0 0 20px 2px rgba(255, 255, 255, 0.4);
+    }
+    .bg-gradient-mesh {
+      background: radial-gradient(circle at 18% 45%, #ff7b1a 0%, #eb4b00 45%, #b82d00 90%);
+    }
+    .contour-circle-1 {
+      position: absolute;
+      width: 580px;
+      height: 580px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 138, 43, 0.45) 0%, rgba(235, 75, 0, 0) 70%);
+      top: -60px;
+      left: 120px;
+      pointer-events: none;
+    }
+    .contour-circle-2 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 60px solid rgba(255, 130, 30, 0.15);
+      top: 30%;
+      left: 20%;
+      pointer-events: none;
+    }
+    /* Blend & cutout isolation */
+    .portrait-cutout {
+      filter: contrast(1.03) brightness(1.02);
+    }
+    /* Tab transition styles */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nav-btn.active-nav {
+      color: #ea580c;
+      font-weight: 800;
+      position: relative;
+    }
+    .nav-btn.active-nav::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #ea580c;
+      border-radius: 9999px;
+    }
+
+    /* 3D Monitor Styles */
+    .monitor-viewport {
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
+    }
+    .monitor-assembly {
+      transform-style: preserve-3d;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.85s ease;
+      will-change: transform;
+    }
+    /* Preset 3D states */
+    .monitor-state-angled {
+      transform: rotateY(-18deg) rotateX(7deg) rotateZ(1.5deg) scale(0.96);
+      box-shadow: -35px 35px 70px -10px rgba(0, 0, 0, 0.8), 0 0 80px rgba(255, 94, 14, 0.18);
+    }
+    .monitor-state-front {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+      box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.9), 0 0 90px rgba(255, 94, 14, 0.22);
+    }
+    .monitor-state-tilt {
+      transform: rotateY(14deg) rotateX(10deg) rotateZ(-2deg) scale(0.97);
+      box-shadow: 35px 35px 70px -10px rgba(0, 0, 0, 0.8), 0 0 80px rgba(255, 94, 14, 0.18);
+    }
+
+    /* Aluminum monitor stand gradient */
+    .aluminum-metal {
+      background: linear-gradient(135deg, #4b5563 0%, #9ca3af 28%, #e5e7eb 52%, #6b7280 75%, #374151 100%);
+    }
+    .aluminum-base {
+      background: linear-gradient(180deg, #9ca3af 0%, #4b5563 45%, #1f2937 100%);
+      box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+    .ambient-orange-spotlight {
+      background: radial-gradient(ellipse at center, rgba(255, 94, 14, 0.42) 0%, rgba(230, 74, 0, 0.2) 42%, rgba(15, 17, 23, 0) 72%);
+    }
+    .screen-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .screen-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .screen-scrollbar::-webkit-scrollbar-thumb {
+      background: #fdba74;
+      border-radius: 6px;
+    }
+    .screen-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+</style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-[#0b0c0e] min-h-screen text-slate-800 flex flex-col items-center justify-start p-2 sm:p-4 md:p-6 lg:p-8 font-sans antialiased selection:bg-orange-500 selection:text-white">
+<!-- BEGIN: Main Canvas Frame -->
+<div class="relative w-full max-w-[1240px] bg-slate-900 rounded-[32px] overflow-hidden shadow-2xl border border-white/10 flex flex-col" data-purpose="portfolio-application-shell">
+<!-- ============================================================== -->
+<!-- TAB VIEW 1: HOME HERO VIEW (Split Orange & Pure White)        -->
+<!-- ============================================================== -->
+<div class="tab-pane active relative w-full flex flex-col justify-between" id="tab-home">
+<!-- SECTION A: Split Hero Fold -->
+<div class="relative w-full aspect-[16/10.8] min-h-[720px] bg-gradient-mesh overflow-hidden flex flex-col justify-between">
+<!-- Decorative contours -->
+<div class="contour-circle-1"></div>
+<div class="contour-circle-2"></div>
+<!-- BEGIN: Top Navigation Header (Inside Hero) -->
+<header class="relative z-30 w-full flex items-center justify-between pt-7 px-8 md:px-12" data-purpose="top-navigation-bar">
+<!-- Brand Logo -->
+<a aria-label="Semaan Homepage" class="flex items-center gap-1.5 text-white group cursor-pointer" onclick="switchTab('home')">
+<svg class="w-6 h-6 stroke-current stroke-[2.2] fill-none transition-transform duration-300 group-hover:scale-110" viewbox="0 0 24 24">
+<path d="M16 8a4.5 4.5 0 0 0-7.8 3.2c0 2.5 2.1 4.3 4.5 4.3a4.4 4.4 0 0 0 4.1-3.2L18 8m-5 7.5L7 21m9-13A6 6 0 1 0 7 15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-2xl font-bold tracking-tight text-white font-sans">Semaan</span>
+</a>
+<!-- Right Nav pill overlay aligned into the white card block -->
+<nav class="hidden md:flex items-center bg-white px-7 py-3 rounded-full shadow-lg space-x-7 text-[11px] font-bold tracking-[0.16em] text-slate-700" data-purpose="nav-links">
+<button class="nav-btn hover:text-orange-600 transition-colors uppercase" onclick="switchTab('work')" type="button">WORK</button>
+<button class="nav-btn hover:text-orange-600 transition-colors uppercase" onclick="scrollToAboutMonitor()" type="button">ABOUT</button>
+<button class="nav-btn hover:text-orange-600 transition-colors uppercase" onclick="switchTab('services')" type="button">SERVICES</button>
+<button class="nav-btn hover:text-orange-600 transition-colors uppercase" onclick="switchTab('contact')" type="button">CONTACT</button>
+<!-- Mobile/Quick Toggle -->
+<button aria-label="Open menu drawer" class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition-colors" onclick="switchTab('work')" type="button">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 16 16">
+<rect height="1.8" rx="0.9" width="16" y="3"></rect>
+<rect height="1.8" rx="0.9" width="16" y="7.5"></rect>
+<rect height="1.8" rx="0.9" width="16" y="12"></rect>
+</svg>
+</button>
+</nav>
+</header>
+<!-- END: Top Navigation Header -->
+<!-- BEGIN: Hero Split Canvas Layer -->
+<div class="absolute inset-0 z-0 flex pointer-events-none" data-purpose="split-background-canvas">
+<!-- Left side (Orange gradient mesh background from parent) -->
+<div class="w-[52%] h-full"></div>
+<!-- Right side: Crisp Pure White Rounded Panel -->
+<div class="w-[48%] h-full bg-white relative rounded-tl-[42px] pointer-events-auto shadow-[-20px_0_40px_rgba(0,0,0,0.06)]"></div>
+</div>
+<!-- END: Hero Split Canvas Layer -->
+<!-- BEGIN: Central Hero Image with Modern Architectural Capsule Frame -->
+<div class="absolute bottom-6 sm:bottom-8 md:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 z-10 select-none flex justify-center items-end" data-purpose="hero-portrait-frame">
+  <div class="relative group">
+    <!-- Frame Outer Shell -->
+    <div class="hero-frame-container w-[260px] sm:w-[310px] md:w-[350px] lg:w-[370px] h-[380px] sm:h-[440px] md:h-[480px] lg:h-[500px] rounded-[36px] p-2.5 sm:p-3 bg-white/40 backdrop-blur-xl border-2 border-white/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.22)] overflow-hidden transition-all duration-500 hover:shadow-orange-500/20 hover:border-white">
+      <!-- Inner Photo Container -->
+      <div class="w-full h-full rounded-[26px] overflow-hidden bg-slate-900 relative">
+        <img alt="John Abrahm Zapico portrait" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" src="static/img/newprofile_card.jpg"/>
+        <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+    <!-- Floating Accent Badge -->
+    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-4 py-1.5 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap z-20 transition-transform duration-300 group-hover:scale-105">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-[10px] font-black uppercase tracking-wider text-slate-800">John Abrahm Zapico</span>
+    </div>
+  </div>
+</div>
+<!-- END: Central Hero Image -->
+<!-- BEGIN: Hero Content Container -->
+<div class="relative z-20 grid grid-cols-1 md:grid-cols-12 h-full items-center px-8 md:px-14 pb-8 pt-4 pointer-events-none">
+<!-- Left Column (Over Orange Field) -->
+<div class="md:col-span-6 flex flex-col justify-center items-start pt-6 md:pt-10 pointer-events-auto" data-purpose="hero-left-copy">
+<h1 class="font-bebas text-white text-[96px] sm:text-[124px] md:text-[144px] lg:text-[168px] tracking-tight mb-2 select-none drop-shadow-sm">
+          CREATE
+        </h1>
+<p class="text-white/95 text-base md:text-[17px] font-medium leading-relaxed max-w-xs mb-8">
+          Designs that inspire.<br/>Ideas that connect.
+        </p>
+<!-- CTA Button -->
+<button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group mb-14 cursor-pointer" data-purpose="hero-cta-button" onclick="switchTab('work')">
+<span>View Work</span>
+<svg class="w-3.5 h-3.5 stroke-current stroke-2 fill-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewbox="0 0 24 24">
+<line x1="7" x2="17" y1="17" y2="7"></line>
+<polyline points="7 7 17 7 17 17"></polyline>
+</svg>
+</button>
+<!-- Social Proof: Avatar Stack & Trust Line -->
+<div class="flex flex-col gap-2.5" data-purpose="social-proof-ratings">
+<div class="flex items-center -space-x-2">
+<img alt="Client Avatar 1" class="w-8 h-8 rounded-full border-2 border-[#E64A00] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRTq475en_PwHXhaKoJL__jkE86OUft63yfBTFpYCQZ4Pg0drnfBPZDU2VfEwlCeF5vUUyJDZ-snUTCE9biWruBbT2E7aqWM1pvNI7lMc5uESlwSFVDZWwEy2tUl-33wY_lg_ojvollDX4F87P1ZWCHmjgSa0KkYyFPkoOFXxpVID2UHdRXR22VgmGM4cHFlMVBZ7-obL0viFCjdT960iAHTAId3KlXDK02RY2as4"/>
+<img alt="Client Avatar 2" class="w-8 h-8 rounded-full border-2 border-[#E64A00] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsGVJXx2FKGy2WJFJ_IQxVYe5qac1Ts9NSRsdKinWkYM-etiFRwfCcQMabff4D5sErpJlUfY_7NSVXjaoq3cbm_W9YpgNKjq6L9dM10i0N2DEAbkJOs77m4ec7K-mDQ9Xesp4VmdwD31jMKbZWuTV0hQYBFo2Ij0ZM2beVwZizkqmD5oCvkLjV6yTVUktHT45TZl8RgtChZO9la4yWMIUnN-A28-hC-qiCrKkOA0c"/>
+<img alt="Client Avatar 3" class="w-8 h-8 rounded-full border-2 border-[#E64A00] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHWt8L-YLEiiKOumlXsGTMNm5hFJ0UONMvT1F528z5f00_PAc22taDX0ngMI1d0Fz2M2UEsOM_Rggp-RtamFVTFK5YPoNeKNadM926BagpL6dsVlI8j7s93adYuov-VHUzxPOc4-C5Yd7o4LUx2rZPyuHEh0O6jGfIQPZs5ugbKoN4HPbgAXboKWjck1mcp7Ynh4uVQumlQy7Yx11Q106QRRaKnuVQJDoRYq9EZ9M"/>
+<img alt="Client Avatar 4" class="w-8 h-8 rounded-full border-2 border-[#E64A00] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXlouVuXHP0DWGABBrTkjsEiB3s02JRXNSwfzuC7Rkq43iiZ1YC_RP_2jOXqBbwY0G0d0Iyh5eoVVFZeUBwJkGL_igcjCCZE1hjHqITI4dQY2EptafiT65Hcs4ghJkU1mdgUo26uz2gDUd_jHto9_i_Tqq7p_54fnGDoqdg-YbRHiq47hFBO2UfCkZnB_Nkh_iXd_udHFGkIw5Fp3tWvwUVnnVCU_ue10VVEAkcks"/>
+<div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-700/60 text-white flex items-center justify-center text-[10px] font-bold backdrop-blur-sm">
+              +12
+            </div>
+</div>
+<span class="text-white/80 text-[11px] font-medium tracking-tight">
+            Trusted by forward-thinking brands worldwide.
+          </span>
+</div>
+</div>
+<!-- Center Spacer Column -->
+<div class="hidden md:block md:col-span-1"></div>
+<!-- Right Column (Over White Field) -->
+<div class="md:col-span-5 flex flex-col justify-between items-start md:items-end h-full pt-20 pb-4 pointer-events-auto ml-auto text-left" data-purpose="hero-right-details">
+<!-- Status Indicator: Available For Projects -->
+<div class="w-full max-w-[240px] pt-8" data-purpose="availability-badge">
+<div class="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.14em] uppercase text-orange-600 mb-1">
+<span>Available for</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-orange-600 animate-pulse"></span>
+</div>
+<h2 class="text-2xl lg:text-[28px] font-extrabold text-slate-900 tracking-tight leading-tight">
+            Freelance<br/>Projects
+          </h2>
+</div>
+<!-- Client Testimonial Floating Card -->
+<div class="w-full max-w-[260px] bg-slate-50/90 hover:bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300" data-purpose="testimonial-card">
+<div class="text-orange-600 font-serif text-3xl font-black leading-none mb-2">“</div>
+<p class="text-[12px] leading-relaxed text-slate-600 font-medium mb-3">
+            Alexis delivered outstanding work that exceeded our expectations.
+          </p>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-900">
+              JAMES CARTER
+            </span>
+<img alt="James Carter" class="w-6 h-6 rounded-full object-cover ring-2 ring-orange-500/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu1ErPLbhA9eeO8z1s2kkB6Y_njHTqAVLz8Q0tALtdpJw6UGogfrusBmVFHpgUD0VFlWolM1xTyEmENG6p3W30PqDnrKlJhRKF-lx2sIC9ZRlj85tFIsOecVPtMXkdH0teqbsJ7qp1slgutF2ZtQ50M175TXWp6LTk-WZ6SI-0U_YGvGcVTLIIoCfY2BT-w1xmsrip3KIk4Gu7mRH5G3T4MYgxXdNdYdkVCYXILGU"/>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Hero Content Container -->
+<!-- Floating scroll prompt -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 pointer-events-auto cursor-pointer group" onclick="scrollToAboutMonitor()">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 group-hover:text-orange-600 transition-colors">Scroll to explore About Alexis</span>
+<div class="w-5 h-8 rounded-full border border-slate-300 flex items-start justify-center p-1 bg-white/70 backdrop-blur-sm shadow-sm">
+<span class="w-1 h-2 rounded-full bg-orange-600 animate-bounce"></span>
+</div>
+</div>
+</div>
+<!-- END: SECTION A -->
+<!-- ============================================================== -->
+<!-- SECTION B: INTERACTIVE 3D MONITOR / ABOUT ME SECTION           -->
+<!-- ============================================================== -->
+<section class="relative w-full bg-[#0d0f14] overflow-hidden pt-20 pb-28 px-4 sm:px-8 border-t border-white/5" id="section-about-monitor">
+<!-- Deep ambient glow & Studio background elements -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="ambient-orange-spotlight absolute top-12 left-1/2 -translate-x-1/2 w-[980px] h-[700px] blur-3xl opacity-60"></div>
+<div class="absolute -bottom-20 right-10 w-[500px] h-[500px] rounded-full bg-orange-600/10 blur-[130px]"></div>
+<!-- Massive Typographic Watermark -->
+<div class="absolute top-8 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.035] whitespace-nowrap font-syne text-[18vw] font-black text-orange-500 tracking-tighter">
+      ALEXIS
+    </div>
+</div>
+<div class="relative z-10 max-w-6xl mx-auto flex flex-col items-center">
+<!-- Section Intro & Control Bar -->
+<div class="w-full flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
+<span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+<span>Interactive 3D Workspace Experience</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+          About &amp; Creative Space
+        </h2>
+<p class="text-slate-400 text-sm mt-1 max-w-lg">
+          Explore Alexis’s background narrative, design toolchain, experience timeline, and certified honors inside the workstation display.
+        </p>
+</div>
+<!-- 3D Perspective Controls -->
+<div class="flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
+<button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-orange-600 transition-all shadow-md" id="btn-ang" onclick="setMonitorState('angled')" type="button">
+          Perspective 3D
+        </button>
+<button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all" id="btn-front" onclick="setMonitorState('front')" type="button">
+          Front Facing
+        </button>
+<button class="monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all" id="btn-tilt" onclick="setMonitorState('tilt')" type="button">
+          Tilt View
+        </button>
+</div>
+</div>
+<!-- 3D Monitor Viewport -->
+<div class="monitor-viewport w-full max-w-[1080px] flex flex-col items-center select-none" id="monitor-container">
+<!-- The Monitor Unit (Screen + Bezel) -->
+<div class="monitor-assembly monitor-state-angled w-full bg-[#0a0a0c] p-3.5 sm:p-4 rounded-[30px] border border-white/15 relative overflow-hidden transition-all duration-700" id="monitor-box">
+<!-- Glass Reflection Sheen -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.07] z-30 rounded-[30px]"></div>
+<!-- Screen Bezel Camera / Sensor Dot -->
+<div class="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-slate-700 ring-1 ring-black z-30"></div>
+<!-- ============================================================== -->
+<!-- INNER SCREEN DISPLAY: Comprehensive Dedicated "About Me" OS    -->
+<!-- ============================================================== -->
+<div class="w-full bg-[#f8fafc] text-slate-800 rounded-[22px] overflow-hidden shadow-inner flex flex-col border border-slate-200/90 screen-scrollbar max-h-[720px] overflow-y-auto" id="screen-inner-scroll">
+<!-- 1. Top Bar / App Header Inside Monitor -->
+<div class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white text-xs font-black">A</span>
+<span class="font-extrabold text-slate-900 tracking-tight text-base font-sans">Alexis Semaan</span>
+<span class="hidden sm:inline-block text-[10px] text-slate-400 font-semibold uppercase tracking-wider border-l border-slate-200 pl-2">Portfolio OS</span>
+</div>
+<!-- Internal Tab Navigation Links -->
+<nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-600">
+<a class="hover:text-orange-600 transition text-orange-600 font-extrabold" href="#os-overview">Overview</a>
+<a class="hover:text-orange-600 transition" href="#os-what-i-do">What I Do</a>
+<a class="hover:text-orange-600 transition" href="#os-experience">Experience</a>
+<a class="hover:text-orange-600 transition" href="#os-certificates">Certificates</a>
+</nav>
+</div>
+<!-- Status Badge & CTA -->
+<div class="flex items-center gap-3">
+<div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="hidden sm:inline">Available for Projects</span>
+<span class="sm:hidden">Available</span>
+</div>
+<button class="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-full transition shadow-sm" onclick="switchTab('contact')">
+      Get in Touch
+    </button>
+</div>
+</div>
+<!-- 2. Bio & Personal Narrative Section -->
+<div class="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-overview">
+<div class="max-w-4xl mx-auto">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 mb-8">
+<!-- Mini Profile Avatar / Visual -->
+<div class="relative shrink-0">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden ring-4 ring-orange-500/20 bg-slate-900 shadow-md">
+<img alt="John Abrahm Zapico Avatar" class="w-full h-full object-cover object-top" src="static/img/JohnAbrahm.jpg"/>
+</div>
+<div class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-orange-600 text-white font-black text-[9px] uppercase tracking-wider shadow">
+          LEAD
+        </div>
+</div>
+<div>
+<div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-1.5">
+<span>Creative Director &amp; Lead Product Designer</span>
+<span class="text-slate-300">•</span>
+<span class="text-slate-500 font-semibold">London &amp; NYC</span>
+</div>
+<h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+          Hi, I’m Alexis Semaan. Crafting tactile, high-conversion digital realities.
+        </h3>
+<p class="text-slate-600 text-sm sm:text-base leading-relaxed mt-2.5 max-w-2xl font-normal">
+          With 8+ years collaborating with early-stage venture founders and global tech leaders, I bridge aesthetic distinction with deep product usability. My philosophy centers on eliminating friction while engineering unforgettable brand resonance.
+        </p>
+</div>
+</div>
+<!-- Core Key Metrics & Impact Numbers -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2">
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 hover:border-orange-200 transition">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Experience</span>
+<span class="text-2xl sm:text-3xl font-black text-slate-900 mt-1 block">8+ Years</span>
+<span class="text-[11px] text-slate-500 font-medium">Design &amp; Direction</span>
+</div>
+<div class="p-4 rounded-xl bg-orange-50/60 border border-orange-200/80 hover:border-orange-300 transition">
+<span class="text-[11px] font-bold text-orange-600 uppercase tracking-wider block">Shipped Work</span>
+<span class="text-2xl sm:text-3xl font-black text-orange-600 mt-1 block">42+</span>
+<span class="text-[11px] text-slate-600 font-medium">Live Global Apps</span>
+</div>
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 hover:border-orange-200 transition">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Client Funding</span>
+<span class="text-2xl sm:text-3xl font-black text-slate-900 mt-1 block">$140M+</span>
+<span class="text-[11px] text-slate-500 font-medium">Seed to Series C</span>
+</div>
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 hover:border-orange-200 transition">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Industry Honors</span>
+<span class="text-2xl sm:text-3xl font-black text-slate-900 mt-1 block">16+</span>
+<span class="text-[11px] text-slate-500 font-medium">Awwwards &amp; FWA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. "What I Do" (Core Competencies & Services Grid) -->
+<div class="p-6 sm:p-10 md:p-12 bg-slate-50/70 border-b border-slate-100" id="os-what-i-do">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Core Competencies</span>
+<h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">What I Do &amp; How I Partner</h4>
+</div>
+<span class="text-xs font-semibold text-slate-400 hidden sm:inline-block">End-to-End Capabilities</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Service 1 -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 transition duration-200">
+<div>
+<div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-black text-base mb-4">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<rect height="18" rx="2" width="18" x="3" y="3"></rect>
+<line x1="3" x2="21" y1="9"></line>
+<line x1="9" x2="9" y1="21"></line>
+</svg>
+</div>
+<h5 class="text-base font-bold text-slate-900 mb-2 leading-snug">Product &amp; Interface Architecture</h5>
+<p class="text-xs text-slate-600 leading-relaxed mb-4">
+            High-converting UX/UI workflows, design token systems in Figma, and scalable app architectures engineered for rapid SaaS and iOS/Android product validation.
+          </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Design Systems</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">SaaS UX</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Mobile Apps</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 transition duration-200">
+<div>
+<div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-base mb-4">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+<path d="M2 17l10 5 10-5"></path>
+<path d="M2 12l10 5 10-5"></path>
+</svg>
+</div>
+<h5 class="text-base font-bold text-slate-900 mb-2 leading-snug">3D Interactive &amp; Creative Direction</h5>
+<p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Immersive WebGL environments, 3D parametric brand assets, and sensory motion micro-interactions that elevate brand positioning above generic competitor websites.
+          </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">WebGL / Three.js</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">3D Brand Assets</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Kinetic Visuals</span>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 transition duration-200">
+<div>
+<div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-base mb-4">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M12 8v8m-4-4h8"></path>
+</svg>
+</div>
+<h5 class="text-base font-bold text-slate-900 mb-2 leading-snug">Brand Strategy &amp; Digital Identity</h5>
+<p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Uncompromising visual identity kits, bespoke typographic standards, investor-grade pitch collateral, and brand playbooks built to attract tier-one capital.
+          </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Typography</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Brand Playbooks</span>
+<span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Pitch Decks</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Experience & Work History (Interactive Timeline) -->
+<div class="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-experience">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Career Trajectory</span>
+<h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Experience &amp; Leadership</h4>
+</div>
+<span class="text-xs font-semibold text-slate-500">2017 — Present</span>
+</div>
+<!-- Timeline List -->
+<div class="space-y-4">
+<!-- Role 1 -->
+<div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-300 transition duration-200">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-orange-600 ring-4 ring-orange-100 shrink-0"></span>
+<h5 class="text-sm font-bold text-slate-900">Lead Product Designer &amp; Design Partner</h5>
+<span class="text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded border border-orange-200/50">Kinetic Studio (London)</span>
+</div>
+<span class="text-xs font-extrabold text-slate-500 uppercase tracking-wider">2022 — PRESENT</span>
+</div>
+<p class="text-xs text-slate-600 pl-6 leading-relaxed">
+          Overseeing product UX vision and tokenized design systems for fast-scaling European and US tech startups. Led design teams on 18+ high-stakes releases across FinTech, AI productivity, and spatial commerce.
+        </p>
+</div>
+<!-- Role 2 -->
+<div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-300 transition duration-200">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-slate-400 shrink-0"></span>
+<h5 class="text-sm font-bold text-slate-900">Senior UX/UI Specialist</h5>
+<span class="text-xs font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">Aura Fintech (NYC)</span>
+</div>
+<span class="text-xs font-extrabold text-slate-500 uppercase tracking-wider">2020 — 2022</span>
+</div>
+<p class="text-xs text-slate-600 pl-6 leading-relaxed">
+          Spearheaded the redesign of Aura’s flagship mobile wealth management app, reducing onboarding drop-off by 34% and enabling $65M+ in new institutional transactions.
+        </p>
+</div>
+<!-- Role 3 -->
+<div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-300 transition duration-200">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-slate-400 shrink-0"></span>
+<h5 class="text-sm font-bold text-slate-900">Product Designer &amp; Visual Strategist</h5>
+<span class="text-xs font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">Vertex Digital</span>
+</div>
+<span class="text-xs font-extrabold text-slate-500 uppercase tracking-wider">2017 — 2020</span>
+</div>
+<p class="text-xs text-slate-600 pl-6 leading-relaxed">
+          Crafted wireframes, rapid interactive prototypes, and web design guidelines for 20+ multinational client briefs in London and San Francisco.
+        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Certificates & Honors Section -->
+<div class="p-6 sm:p-10 md:p-12 bg-slate-50/70" id="os-certificates">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-orange-600">Verified Credentials</span>
+<h4 class="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Certificates &amp; Honors</h4>
+</div>
+<span class="text-xs font-semibold text-emerald-600 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Verified Design Leader
+      </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Cert 1 -->
+<div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 font-black text-sm">
+          NN/g
+        </div>
+<div>
+<h6 class="text-xs font-bold text-slate-900">Nielsen Norman Group UX Master Certified</h6>
+<p class="text-[11px] text-slate-500 mt-0.5">Credential ID: NN-948210 • Enterprise UX Research &amp; Interaction Architecture</p>
+</div>
+</div>
+<!-- Cert 2 -->
+<div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-black text-sm">
+          G
+        </div>
+<div>
+<h6 class="text-xs font-bold text-slate-900">Google Professional UX Certification</h6>
+<p class="text-[11px] text-slate-500 mt-0.5">End-to-End Design Sprint, Accessibility &amp; Usability Audits</p>
+</div>
+</div>
+<!-- Cert 3 -->
+<div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 font-black text-sm">
+          AWW
+        </div>
+<div>
+<h6 class="text-xs font-bold text-slate-900">Awwwards Site of the Day &amp; Mobile Excellence (x4)</h6>
+<p class="text-[11px] text-slate-500 mt-0.5">Recognized for superior UI craft, interaction dynamics, and 60fps performance</p>
+</div>
+</div>
+<!-- Cert 4 -->
+<div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 font-black text-sm">
+          FWA
+        </div>
+<div>
+<h6 class="text-xs font-bold text-slate-900">FWA of the Day &amp; Adobe Design Achievement Award</h6>
+<p class="text-[11px] text-slate-500 mt-0.5">Awarded for breakthrough 3D spatial web design and generative identity</p>
+</div>
+</div>
+</div>
+<!-- Monitor Internal Footer Action -->
+<div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-xs text-slate-500">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Based in London &amp; New York City • Working with Founders Worldwide</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-xs font-bold text-slate-700 hover:text-orange-600 transition" onclick="switchTab('work')">
+          Browse Portfolio Projects →
+        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: INNER SCREEN DISPLAY -->
+</div>
+<!-- END: Monitor Unit -->
+<!-- Sleek Aluminum Stand & Hinge (Hyper-realistic modern desktop stand) -->
+<div class="w-full flex flex-col items-center -mt-2 z-20 pointer-events-none">
+<!-- Stand Hinge / Vertical Column with Cable cutout -->
+<div class="aluminum-metal w-28 h-28 relative rounded-t-lg shadow-2xl flex flex-col items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-[#18191d] shadow-inner border border-white/20"></div>
+<div class="absolute bottom-0 w-full h-4 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<!-- Monitor Desktop Foot / Base plate -->
+<div class="aluminum-base w-72 sm:w-80 h-3 rounded-2xl -mt-0.5 border-t border-white/40"></div>
+<!-- Shadow under the monitor foot -->
+<div class="w-80 sm:w-96 h-6 bg-black/80 blur-xl -mt-2 rounded-full"></div>
+</div>
+</div>
+<!-- END: Monitor Viewport -->
+</div>
+</section>
+<!-- END: SECTION B -->
+</div>
+<!-- END: TAB VIEW 1 -->
+<!-- ============================================================== -->
+<!-- PERSISTENT TOP BAR FOR INNER PAGES (Work, About, Services, Contact) -->
+<!-- ============================================================== -->
+<header class="hidden w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-8 md:px-12 py-4 items-center justify-between z-30 sticky top-0" data-purpose="subpage-navigation" id="subpage-nav">
+<a class="flex items-center gap-2 text-slate-900 group" href="javascript:void(0)" onclick="switchTab('home')">
+<span class="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-white">
+<svg class="w-4 h-4 stroke-current stroke-[2.5] fill-none" viewbox="0 0 24 24">
+<path d="M16 8a4.5 4.5 0 0 0-7.8 3.2c0 2.5 2.1 4.3 4.5 4.3a4.4 4.4 0 0 0 4.1-3.2L18 8m-5 7.5L7 21m9-13A6 6 0 1 0 7 15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<span class="text-xl font-bold tracking-tight font-sans">Semaan</span>
+</a>
+<div class="flex items-center gap-1 md:gap-6 text-xs font-bold tracking-[0.14em] text-slate-600">
+<button class="sub-nav-home px-3 py-2 rounded-lg hover:text-orange-600 transition-colors uppercase" onclick="switchTab('home')">Home</button>
+<button class="sub-nav-work px-3 py-2 rounded-lg hover:text-orange-600 transition-colors uppercase" onclick="switchTab('work')">Work</button>
+<button class="sub-nav-about px-3 py-2 rounded-lg hover:text-orange-600 transition-colors uppercase" onclick="scrollToAboutMonitor(); switchTab('home');">About</button>
+<button class="sub-nav-services px-3 py-2 rounded-lg hover:text-orange-600 transition-colors uppercase" onclick="switchTab('services')">Services</button>
+<button class="sub-nav-contact px-3 py-2 rounded-lg hover:text-orange-600 transition-colors uppercase" onclick="switchTab('contact')">Contact</button>
+</div>
+<button class="hidden sm:inline-flex items-center gap-2 bg-orange-600 text-white font-semibold text-xs px-4 py-2 rounded-full hover:bg-orange-700 transition shadow-sm" onclick="switchTab('contact')">
+<span>Get in Touch</span>
+<span>→</span>
+</button>
+</header>
+<!-- ============================================================== -->
+<!-- TAB VIEW 2: WORK / SELECTED PROJECTS                          -->
+<!-- ============================================================== -->
+<div class="tab-pane bg-white px-8 md:px-14 py-12 md:py-16" id="tab-work">
+<div class="max-w-5xl mx-auto">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-slate-100 gap-4">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-orange-600">Selected Portfolio</span>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1">Featured Case Studies</h2>
+</div>
+<p class="text-slate-500 text-sm max-w-sm">Curated digital experiences, product architectures, and high-impact identity systems built for visionary scale.</p>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 gap-12">
+<!-- Project 1: AURUM Fintech -->
+<article class="group rounded-3xl bg-slate-900 text-white overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 border border-slate-800">
+<div class="relative overflow-hidden aspect-[16/9] bg-slate-950">
+<img alt="Aurum Mobile Fintech &amp; Lifestyle App UI/UX Case Study" class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition duration-500" src="https://lh3.googleusercontent.com/aida/ALJJyrA45OdUtj160wFdpCLnx1n_9b7vR9pa1psJ1-oEu2QK-sbtum4qykDbKI1gqsTYanTLz7c9-ZkTEH8oVXiGw80fOqR6ikMaBtXH4vR6Ng2e_1cBZnpaY_T-vJS6Axj7MU-u0pXYy0-SnN5BBRaWuAsBf2l8Cl2WPgfn9RKyvFmrUQNjPf4iKyOOnUmpzjSZV7Y9eZVuF0tp0qUzEV3XdRrhTkpEfx6gCZnYbu5tEvmZ"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-black/70 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-orange-500/20">Fintech / Mobile App</span>
+<span class="bg-black/70 backdrop-blur-md text-slate-200 text-[11px] font-medium px-3 py-1 rounded-full">2024</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gradient-to-b from-slate-900 to-[#121620]">
+<div>
+<h3 class="text-2xl font-bold text-white mb-2">AURUM — Reimagining Finance &amp; Luxury Lifestyle</h3>
+<p class="text-slate-400 text-sm max-w-xl">Complete end-to-end mobile design framework for next-gen wealth management, combining gamified portfolio rewards with seamless multi-currency checkout.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-slate-300 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">Figma • iOS</span>
+<button class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-full transition" onclick="switchTab('contact')">
+<span>View Details</span>
+<span>↗</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Project 2: Kinetic Visions -->
+<article class="group rounded-3xl bg-slate-900 text-white overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 border border-slate-800">
+<div class="relative overflow-hidden aspect-[16/9] bg-slate-950">
+<img alt="Kinetic Visions Digital Branding &amp; 3D Visual Identity System" class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition duration-500" src="https://lh3.googleusercontent.com/aida/ALJJyrBJ2EF57zHYBVcjI6nbHc-ettzl92yQaH9hLMBsJEZvkFJYHpAUi8Js2JwKc-rUpzC2NU-a1ixxnKQqcGJlhr3qwhWyToow1TVywDUsrX7G01ecqx_Blaf7ZicKiVExwWNKextrAbb2QPETGbUr3ySZi6zDyCFh3XdRUbfqQQBhUJhFOlZ0rss30T_ZasEhj92jqbXL-ahUdm7UhVEtUpCE_GiEOxblq28oIzrcVkAM"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-black/70 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-orange-500/20">Brand Identity &amp; 3D</span>
+<span class="bg-black/70 backdrop-blur-md text-slate-200 text-[11px] font-medium px-3 py-1 rounded-full">2023</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gradient-to-b from-slate-900 to-[#121620]">
+<div>
+<h3 class="text-2xl font-bold text-white mb-2">Kinetic Visions — Dynamic 3D Identity &amp; Visual System</h3>
+<p class="text-slate-400 text-sm max-w-xl">A futuristic brand guideline suite with dynamic parametric 3D sculptures, responsive typography rules, and cinematic product animations.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-slate-300 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">Cinema 4D • Design Tokens</span>
+<button class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-full transition" onclick="switchTab('contact')">
+<span>View Details</span>
+<span>↗</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Bottom Work CTA -->
+<div class="mt-14 p-8 rounded-3xl bg-orange-50 border border-orange-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div>
+<h4 class="text-xl font-bold text-slate-900">Have a groundbreaking product in mind?</h4>
+<p class="text-sm text-slate-600">Let's craft the strategic experience that transforms your market position.</p>
+</div>
+<button class="bg-orange-600 text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:bg-orange-700 transition shadow" onclick="switchTab('contact')">
+          Initiate Project
+        </button>
+</div>
+</div>
+</div>
+<!-- END: TAB VIEW 2 -->
+<!-- ============================================================== -->
+<!-- TAB VIEW 3: ABOUT DESIGNER                                    -->
+<!-- ============================================================== -->
+<div class="tab-pane bg-white px-8 md:px-14 py-12 md:py-16" id="tab-about">
+<div class="max-w-5xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+<!-- Bio Image Showcase -->
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-3xl bg-gradient-to-tr from-orange-600 to-amber-400 p-1 relative overflow-hidden shadow-2xl">
+<img alt="John Abrahm Zapico" class="w-full h-full object-cover object-top rounded-[22px] bg-slate-900" src="static/img/JohnAbrahm.jpg"/>
+</div>
+<div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Current Status</p>
+<p class="text-xs font-extrabold text-slate-900">Available Q2 / Q3 2025</p>
+</div>
+</div>
+</div>
+<!-- Bio Details -->
+<div class="md:col-span-7">
+<span class="text-xs font-bold uppercase tracking-widest text-orange-600">About Me</span>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-2 mb-6">Alexis Semaan</h2>
+<p class="text-lg font-medium text-slate-700 leading-relaxed mb-4">
+            Senior Product &amp; Brand Designer with over 8 years of experience engineering high-converting interfaces, bold visual languages, and immersive digital platforms.
+          </p>
+<p class="text-sm text-slate-500 leading-relaxed mb-6">
+            Bridging the gap between raw aesthetic obsession and systematic product engineering. I partner directly with founders, creative directors, and high-growth venture teams to translate complex technologies into natural, intuitive user touchpoints.
+          </p>
+<!-- Core Competencies -->
+<div class="space-y-4 mb-8">
+<h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Core Expertise &amp; Toolchain</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Product Architecture (UI/UX)</span>
+<span class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Design Systems (Tokens &amp; Figma)</span>
+<span class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Motion &amp; 3D Direction</span>
+<span class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Frontend Engineering</span>
+<span class="px-3.5 py-1.5 rounded-full bg-orange-100 text-orange-800 text-xs font-semibold">Creative Direction</span>
+</div>
+</div>
+<!-- Milestones numbers -->
+<div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-100">
+<div>
+<p class="text-3xl font-black text-slate-900">8+</p>
+<p class="text-xs text-slate-500 font-medium">Years Experience</p>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900">42+</p>
+<p class="text-xs text-slate-500 font-medium">Projects Delivered</p>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900">100%</p>
+<p class="text-xs text-slate-500 font-medium">Client Satisfaction</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: TAB VIEW 3 -->
+<!-- ============================================================== -->
+<!-- TAB VIEW 4: SERVICES & CAPABILITIES                           -->
+<!-- ============================================================== -->
+<div class="tab-pane bg-white px-8 md:px-14 py-12 md:py-16" id="tab-services">
+<div class="max-w-5xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<span class="text-xs font-bold uppercase tracking-widest text-orange-600">Capabilities</span>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1 mb-4">Strategic Design Services</h2>
+<p class="text-sm text-slate-500">From concept sketches to market deployment, delivering polished solutions calibrated for hyper-growth companies.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Service 1 -->
+<div class="p-8 rounded-3xl bg-slate-50 hover:bg-orange-50/50 border border-slate-100 transition duration-300">
+<div class="w-12 h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-orange-500/20">
+            01
+          </div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">Product Design &amp; UI/UX</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Complete application wireframing, high-fidelity prototypes, user testing, and scalable design token architectures for iOS, Android, and Web platforms.</p>
+<ul class="text-xs font-semibold text-slate-500 space-y-1.5">
+<li>• Mobile App Systems &amp; Flow Optimization</li>
+<li>• SaaS Platforms &amp; Dashboards</li>
+<li>• Design System Governance</li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="p-8 rounded-3xl bg-slate-50 hover:bg-orange-50/50 border border-slate-100 transition duration-300">
+<div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md">
+            02
+          </div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">Brand Identity &amp; Strategy</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Distinctive brand identities crafted to stand apart. Visual guidelines, bespoke typography selections, tone of voice, and multi-channel asset kits.</p>
+<ul class="text-xs font-semibold text-slate-500 space-y-1.5">
+<li>• Logo Marks &amp; Typography Systems</li>
+<li>• Comprehensive Brand Guidelines</li>
+<li>• Pitch Decks &amp; Investor Collateral</li>
+</ul>
+</div>
+<!-- Service 3 -->
+<div class="p-8 rounded-3xl bg-slate-50 hover:bg-orange-50/50 border border-slate-100 transition duration-300">
+<div class="w-12 h-12 rounded-2xl bg-orange-500 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-orange-400/20">
+            03
+          </div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">3D &amp; Motion Direction</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Transforming static products into alive, emotive interactive spectacles through custom 3D modeling, render sequences, and interactive micro-interactions.</p>
+<ul class="text-xs font-semibold text-slate-500 space-y-1.5">
+<li>• Product Visualizations &amp; CGI</li>
+<li>• Interactive WebGL &amp; Spline</li>
+<li>• Motion Graphics &amp; Launch Videos</li>
+</ul>
+</div>
+<!-- Service 4 -->
+<div class="p-8 rounded-3xl bg-slate-50 hover:bg-orange-50/50 border border-slate-100 transition duration-300">
+<div class="w-12 h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md">
+            04
+          </div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">Frontend Engineering</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Pixel-perfect frontends built with modern stacks (React, Next.js, Tailwind, GSAP). Smooth 60fps animations and fluid responsive web implementations.</p>
+<ul class="text-xs font-semibold text-slate-500 space-y-1.5">
+<li>• Modern Web Implementation</li>
+<li>• Smooth Animation &amp; Micro-Interactions</li>
+<li>• Performance &amp; SEO Optimization</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- END: TAB VIEW 4 -->
+<!-- ============================================================== -->
+<!-- TAB VIEW 5: CONTACT & BOOKING FORM                            -->
+<!-- ============================================================== -->
+<div class="tab-pane bg-white px-8 md:px-14 py-12 md:py-16" id="tab-contact">
+<div class="max-w-5xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Left Contact Info -->
+<div class="md:col-span-5 flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-orange-600">Get In Touch</span>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-1 mb-4">Let's build something unforgettable.</h2>
+<p class="text-sm text-slate-500 leading-relaxed mb-8">Currently scheduling new project partnerships for Q2/Q3 2025. Send a direct brief or grab a slot directly on my calendar.</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold">@</span>
+<div>
+<p class="text-[11px] font-bold uppercase text-slate-400">Direct Email</p>
+<p class="text-sm font-semibold text-slate-900">alexis@semaan.design</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold">📍</span>
+<div>
+<p class="text-[11px] font-bold uppercase text-slate-400">Location</p>
+<p class="text-sm font-semibold text-slate-900">London, NYC &amp; Remote Worldwide</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Calendar card -->
+<div class="p-5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg">
+<p class="text-xs font-bold uppercase tracking-wider text-orange-100">Direct Booking</p>
+<h4 class="text-lg font-bold mt-0.5">Need a 20-min intro chat?</h4>
+<p class="text-xs text-orange-50 mt-1 mb-3">Reserve an informal video discovery call.</p>
+<a class="inline-flex items-center gap-2 bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-full hover:bg-orange-50 transition shadow-sm" href="mailto:alexis@semaan.design?subject=Project%20Discovery%20Call">
+<span>Book Google Meet</span>
+<span>→</span>
+</a>
+</div>
+</div>
+<!-- Right Inquiry Form -->
+<div class="md:col-span-7 bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200/80">
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Alexis has received your message and will respond within 24 hours.'); switchTab('home');">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Your Name</label>
+<input class="w-full text-sm bg-white rounded-xl border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="e.g. Sarah Lin" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Email Address</label>
+<input class="w-full text-sm bg-white rounded-xl border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="sarah@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Project Scope / Services Needed</label>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+<input checked="" class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+<span>Product UI/UX</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+<input class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+<span>Brand Identity</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+<input class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+<span>3D &amp; Motion</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-orange-400">
+<input class="text-orange-600 rounded focus:ring-orange-500" type="checkbox"/>
+<span>Web Engineering</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Estimated Budget (USD)</label>
+<select class="w-full text-sm bg-white rounded-xl border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3">
+<option>$5,000 – $10,000</option>
+<option selected="">$10,000 – $25,000</option>
+<option>$25,000 – $50,000+</option>
+<option>Custom Retainer / Advisory</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Project Brief</label>
+<textarea class="w-full text-sm bg-white rounded-xl border-slate-200 focus:border-orange-500 focus:ring-orange-500 px-4 py-3" placeholder="Tell me about your product, objectives, and target timeframe..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition duration-200 shadow-md" type="submit">
+              Send Project Inquiry
+            </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- END: TAB VIEW 5 -->
+</div>
+<!-- END: Main Canvas Frame -->
+<!-- Tab Switch & 3D Monitor Script -->
+<script>
+  function switchTab(tabId) {
+    const tabs = ['home', 'work', 'about', 'services', 'contact'];
+    tabs.forEach(id => {
+      const pane = document.getElementById('tab-' + id);
+      if (pane) {
+        if (id === tabId) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      }
+    });
+
+    const subNav = document.getElementById('subpage-nav');
+    if (tabId === 'home') {
+      subNav.classList.add('hidden');
+      subNav.classList.remove('flex');
+    } else {
+      subNav.classList.remove('hidden');
+      subNav.classList.add('flex');
+    }
+
+    // Update active state in sub navigation
+    tabs.forEach(id => {
+      const subButtons = document.querySelectorAll('.sub-nav-' + id);
+      subButtons.forEach(btn => {
+        if (id === tabId) {
+          btn.classList.add('text-orange-600', 'font-extrabold');
+          btn.classList.remove('text-slate-600');
+        } else {
+          btn.classList.remove('text-orange-600', 'font-extrabold');
+          btn.classList.add('text-slate-600');
+        }
+      });
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToAboutMonitor() {
+    // If not in home tab, switch to home first
+    const homePane = document.getElementById('tab-home');
+    if (!homePane.classList.contains('active')) {
+      switchTab('home');
+    }
+    const monitorSec = document.getElementById('section-about-monitor');
+    if (monitorSec) {
+      monitorSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // 3D Monitor State Controller
+  function setMonitorState(state) {
+    const monitor = document.getElementById('monitor-box');
+    const btns = {
+      angled: document.getElementById('btn-ang'),
+      front: document.getElementById('btn-front'),
+      tilt: document.getElementById('btn-tilt')
+    };
+
+    if (!monitor) return;
+
+    monitor.classList.remove('monitor-state-angled', 'monitor-state-front', 'monitor-state-tilt');
+    
+    if (state === 'angled') {
+      monitor.classList.add('monitor-state-angled');
+    } else if (state === 'front') {
+      monitor.classList.add('monitor-state-front');
+    } else if (state === 'tilt') {
+      monitor.classList.add('monitor-state-tilt');
+    }
+
+    // Update button styles
+    Object.keys(btns).forEach(key => {
+      if (btns[key]) {
+        if (key === state) {
+          btns[key].className = 'monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-orange-600 transition-all shadow-md';
+        } else {
+          btns[key].className = 'monitor-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all';
+        }
+      }
+    });
+  }
+
+  // Scroll observer to trigger dynamic flip into front position when user scrolls into section
+  window.addEventListener('DOMContentLoaded', () => {
+    const monitorSec = document.getElementById('section-about-monitor');
+    if (monitorSec && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.4) {
+            setMonitorState('front');
+          }
+        });
+      }, { threshold: [0.2, 0.45] });
+      observer.observe(monitorSec);
+    }
+
+    // Subtle 3D mouse parallax on monitor container
+    const monitorContainer = document.getElementById('monitor-container');
+    const monitorBox = document.getElementById('monitor-box');
+    if (monitorContainer && monitorBox) {
+      monitorContainer.addEventListener('mousemove', (e) => {
+        if (!monitorBox.classList.contains('monitor-state-front')) return;
+        const rect = monitorContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+        const rotX = -(y / rect.height) * 10;
+        const rotY = (x / rect.width) * 14;
+        monitorBox.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.01)`;
+      });
+      monitorContainer.addEventListener('mouseleave', () => {
+        if (monitorBox.classList.contains('monitor-state-front')) {
+          monitorBox.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+        }
+      });
+    }
+  });
+</script>
+</body></html>
