@@ -13,8 +13,8 @@
     "avatar": "/static/img/JohnAbrahm.jpg",
     "desktop_avatar": "/static/img/JohnAbrahm.jpg",
     "about_image": "/static/img/JohnAbrahm.jpg",
-    "cutout": "/static/img/newprofile_centered.png",
-    "hero_image": "/static/img/newprofile_card.jpg",
+    "cutout": "/static/img/newprofile_full.png",
+    "hero_image": "/static/img/newprofile_full.png",
     "github_avatar": "https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4",
     "trust_line": "Trusted by collaborators, clients, and fellow engineers."
   },

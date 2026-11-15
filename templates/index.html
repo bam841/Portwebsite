@@ -66,32 +66,6 @@
         <div class="w-1/2 h-full bg-white relative rounded-tl-[48px] pointer-events-auto shadow-[-20px_0_40px_rgba(0,0,0,0.06)]"></div>
       </div>
 
-      <!-- Central Hero Image with Modern Architectural Capsule Frame -->
-      <div class="absolute bottom-6 sm:bottom-8 md:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 z-10 select-none flex justify-center items-end" data-purpose="hero-portrait-frame">
-        <div class="relative group">
-          <!-- Frame Outer Shell -->
-          <div class="hero-frame-container w-[260px] sm:w-[310px] md:w-[350px] lg:w-[370px] h-[380px] sm:h-[440px] md:h-[480px] lg:h-[500px] rounded-[36px] p-2.5 sm:p-3 bg-white/40 backdrop-blur-xl border-2 border-white/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.22)] overflow-hidden transition-all duration-500 hover:shadow-orange-500/20 hover:border-white">
-            
-            <!-- Inner Photo Container -->
-            <div class="w-full h-full rounded-[26px] overflow-hidden bg-slate-900 relative">
-              <img 
-                alt="{{ profile.name }} portrait" 
-                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" 
-                src="{{ profile.hero_image or url_for('static', filename='img/newprofile_card.jpg') }}"
-              />
-              <!-- Subtle Bottom Gradient to blend into card -->
-              <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
-            </div>
-          </div>
-
-          <!-- Floating Accent Badge -->
-          <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-4 py-1.5 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap z-20 transition-transform duration-300 group-hover:scale-105">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-800">{{ profile.name }}</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Hero Content Container -->
       <div class="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 h-full items-center px-6 sm:px-10 lg:px-12 pb-12 pt-6 pointer-events-none my-auto">
         
@@ -131,40 +105,65 @@
         </div>
 
         <!-- Center Spacer Column -->
-        <div class="hidden md:block md:col-span-2"></div>
+        <div class="hidden md:block md:col-span-1"></div>
 
-        <!-- Right Column (Over White Field) -->
-        <div class="md:col-span-5 flex flex-col justify-between items-start md:items-end h-full pt-20 pb-4 pointer-events-auto ml-auto text-left" data-purpose="hero-right-details">
+        <!-- Right Column (Over White Field - Side Layout with Description Below Picture) -->
+        <div class="md:col-span-6 flex flex-col items-center md:items-end justify-center w-full max-w-[420px] lg:max-w-[460px] mx-auto md:ml-auto h-full pt-14 md:pt-16 pb-4 pointer-events-auto" data-purpose="hero-right-details">
           
-          <!-- Status Indicator: Available For Projects -->
-          <div class="w-full max-w-[240px] pt-8" data-purpose="availability-badge">
-            <div class="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.14em] uppercase text-orange-600 mb-1">
-              <span>Status</span>
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <!-- Top Status Header -->
+          <div class="w-full flex items-center justify-between mb-3 px-1" data-purpose="availability-badge">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Available For Projects &amp; Roles</span>
             </div>
-            <h2 class="text-2xl lg:text-[28px] font-extrabold text-slate-900 tracking-tight leading-tight">
-              Available For<br/>Projects &amp; Roles
-            </h2>
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline">National University</span>
           </div>
 
-          <!-- Endorsement Floating Card -->
-          <div class="w-full max-w-[260px] bg-slate-50/90 hover:bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300" data-purpose="testimonial-card">
-            <div class="text-orange-600 font-serif text-3xl font-black leading-none mb-2">“</div>
-            <p class="text-[12px] leading-relaxed text-slate-600 font-medium mb-3">
-              {{ testimonial.quote }}
-            </p>
-            <div class="flex items-center justify-between pt-1">
-              <div>
-                <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-900 block">
-                  {{ testimonial.author }}
-                </span>
-                <span class="text-[9px] text-slate-400 font-semibold block">
-                  {{ testimonial.role }}
-                </span>
+          <!-- Single Unified Frame: Picture on Top, Description Below (Same Frame) -->
+          <div class="w-full rounded-3xl bg-white border border-slate-200/90 shadow-xl overflow-hidden p-3 sm:p-4 flex flex-col transition-all duration-300 hover:shadow-2xl hover:border-orange-200" data-purpose="hero-unified-card">
+            
+            <!-- 1. Top Section: Picture -->
+            <div class="w-full h-[240px] sm:h-[270px] md:h-[290px] rounded-2xl overflow-hidden bg-gradient-to-b from-slate-50 via-white to-orange-50/20 border border-slate-100 flex items-end justify-center relative group shrink-0">
+              <div class="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-orange-500/10 blur-xl pointer-events-none"></div>
+              
+              <!-- Full Portrait Image: object-contain guarantees full body visibility with zero facial crop -->
+              <img 
+                alt="{{ profile.name }} portrait" 
+                class="w-full h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-[1.02]" 
+                src="{{ profile.hero_image or url_for('static', filename='img/newprofile_full.png') }}"
+              />
+
+              <!-- Bottom subtle card accent -->
+              <div class="absolute bottom-2 inset-x-2.5 bg-white/95 backdrop-blur-md border border-slate-100 py-1 px-3 rounded-lg flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-[11px] font-extrabold text-slate-900 tracking-tight">{{ profile.display_name }}</span>
+                </div>
+                <span class="text-[9px] font-bold text-orange-600 uppercase tracking-wider">Full-Stack</span>
               </div>
-              <img alt="Endorsement" class="w-6 h-6 rounded-full object-cover ring-2 ring-orange-500/20" src="{{ testimonial.avatar }}"/>
             </div>
+
+            <!-- 2. Bottom Section: Description (Inside the Same Frame, with Big Typography) -->
+            <div class="pt-4 pb-1 px-2 text-left">
+              <div class="text-orange-600 font-serif text-3xl font-black leading-none mb-1.5">“</div>
+              <p class="text-base sm:text-lg md:text-[19px] font-bold text-slate-800 leading-snug tracking-tight mb-3">
+                {{ testimonial.quote }}
+              </p>
+              <div class="flex items-center justify-between pt-2.5 border-t border-slate-100">
+                <div>
+                  <span class="text-xs font-black uppercase tracking-wider text-slate-900 block">
+                    {{ testimonial.author }}
+                  </span>
+                  <span class="text-[11px] text-slate-500 font-medium block">
+                    {{ testimonial.role }}
+                  </span>
+                </div>
+                <img alt="Endorsement" class="w-7 h-7 rounded-full object-cover ring-2 ring-orange-500/20" src="{{ testimonial.avatar }}"/>
+              </div>
+            </div>
+
           </div>
+
         </div>
 
       </div>
