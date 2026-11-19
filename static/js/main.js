@@ -50,7 +50,110 @@ function switchTab(tabId) {
     });
   });
 
+  // Re-trigger domino animations on home return
+  if (tabId === 'home') {
+    triggerHomeDominoAnimations();
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function activateDomino(el) {
+  if (!el) return;
+  el.classList.remove('domino-active');
+  void el.offsetWidth; // Force DOM reflow to restart CSS animation
+  el.classList.add('domino-active');
+  
+  // Also activate child domino items
+  const children = el.querySelectorAll('.domino-item, .domino-item-down, .picture-pop-in, .pill-pop-in, .aura-bloom');
+  children.forEach(child => {
+    child.classList.remove('domino-active');
+    void child.offsetWidth;
+    child.classList.add('domino-active');
+  });
+}
+
+function deactivateDomino(el) {
+  if (!el) return;
+  el.classList.remove('domino-active');
+  const children = el.querySelectorAll('.domino-item, .domino-item-down, .picture-pop-in, .pill-pop-in, .aura-bloom');
+  children.forEach(child => {
+    child.classList.remove('domino-active');
+  });
+}
+
+function triggerHomeDominoAnimations() {
+  const homePane = document.getElementById('tab-home');
+  if (!homePane) return;
+  const clusters = homePane.querySelectorAll(
+    '[data-purpose="hero-left-copy"], ' +
+    '[data-purpose="hero-portrait-center"], ' +
+    '[data-purpose="hero-portrait-mobile"], ' +
+    '[data-purpose="hero-right-details"], ' +
+    '[data-purpose="top-navigation-bar"], ' +
+    '[data-purpose="github-contributions-deck"], ' +
+    '.domino-item, .domino-item-down, .picture-pop-in'
+  );
+  clusters.forEach(el => activateDomino(el));
+}
+
+function initScrollDominoObserver() {
+  if (!('IntersectionObserver' in window)) {
+    // Graceful fallback for non-supporting browsers
+    document.querySelectorAll('.domino-item, .domino-item-down, .picture-pop-in, .pill-pop-in, .aura-bloom').forEach(el => {
+      el.classList.add('domino-active');
+    });
+    return;
+  }
+
+  const selectors = [
+    '[data-purpose="top-navigation-bar"]',
+    '[data-purpose="hero-left-copy"]',
+    '[data-purpose="hero-portrait-center"]',
+    '[data-purpose="hero-portrait-mobile"]',
+    '[data-purpose="hero-right-details"]',
+    '[data-purpose="github-contributions-deck"]',
+    '.domino-item',
+    '.domino-item-down',
+    '.picture-pop-in'
+  ];
+
+  const rawElements = document.querySelectorAll(selectors.join(', '));
+  const observedSet = new Set();
+
+  rawElements.forEach(el => {
+    if (!el) return;
+    const parentCluster = el.closest(
+      '[data-purpose="hero-left-copy"], ' +
+      '[data-purpose="hero-portrait-center"], ' +
+      '[data-purpose="hero-portrait-mobile"], ' +
+      '[data-purpose="hero-right-details"], ' +
+      '[data-purpose="github-contributions-deck"]'
+    );
+    if (parentCluster && parentCluster !== el) {
+      return;
+    }
+    observedSet.add(el);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        // Viewport / Screen is ON IT! Trigger animation
+        activateDomino(el);
+      } else {
+        // Scrolled completely off screen: reset so it re-triggers every time screen is on it
+        deactivateDomino(el);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -20px 0px',
+    threshold: 0.05
+  });
+
+  observedSet.forEach(el => observer.observe(el));
 }
 
 function scrollToAboutMonitor() {
@@ -382,10 +485,139 @@ function setupContactForm() {
   });
 }
 
+// GitHub Contribution Calendar Heatmap Controller
+let currentHeatmapYear = '2026';
+
+async function initGitHubHeatmap() {
+  const container = document.getElementById('gh-heatmap-matrix');
+  const countEl = document.getElementById('gh-total-count');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/github-contributions?username=bam841');
+    const data = await res.json();
+    window._ghContributionsData = data;
+    renderHeatmap(data, currentHeatmapYear);
+  } catch (err) {
+    console.error('Failed to load GitHub contributions', err);
+    container.innerHTML = '<div class="text-xs text-slate-500 py-4">Unable to load live GitHub feed.</div>';
+  }
+}
+
+function renderHeatmap(data, year) {
+  const container = document.getElementById('gh-heatmap-matrix');
+  const countEl = document.getElementById('gh-total-count');
+  const monthLabelsEl = document.getElementById('gh-month-labels');
+  if (!container) return;
+
+  const contributions = data.contributions || [];
+  const totals = data.total || {};
+  const yearCount = totals[year] || totals['2026'] || 331;
+
+  if (countEl) {
+    countEl.innerText = `${yearCount} contributions in ${year === '2026' ? 'the last year' : year}`;
+  }
+
+  // Filter contributions for the selected year or 52 weeks
+  let days = contributions;
+  if (year && year !== '2026') {
+    days = contributions.filter(d => d.date && d.date.startsWith(year));
+  }
+
+  // Ensure tooltips exist
+  let tooltip = document.getElementById('gh-global-tooltip');
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.id = 'gh-global-tooltip';
+    tooltip.className = 'gh-tooltip hidden';
+    document.body.appendChild(tooltip);
+  }
+
+  // Build grid HTML
+  container.innerHTML = '';
+  
+  // Create columns of 7 days (weeks)
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let monthPositions = [];
+  let currentMonth = -1;
+
+  days.forEach((day, idx) => {
+    const cell = document.createElement('div');
+    const lvl = typeof day.level === 'number' ? day.level : 0;
+    cell.className = `gh-cell gh-lvl-${lvl}`;
+    cell.setAttribute('data-date', day.date);
+    cell.setAttribute('data-count', day.count);
+
+    // Track month changes for header labels
+    if (idx % 7 === 0 && day.date) {
+      const colDate = new Date(day.date);
+      const m = colDate.getMonth();
+      if (m !== currentMonth) {
+        monthPositions.push({
+          month: months[m],
+          colIndex: Math.floor(idx / 7)
+        });
+        currentMonth = m;
+      }
+    }
+
+    cell.addEventListener('mouseenter', (e) => {
+      const dateObj = new Date(day.date + 'T00:00:00');
+      const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const c = day.count;
+      const text = c === 0 ? `No contributions on ${dateStr}` : `${c} contribution${c > 1 ? 's' : ''} on ${dateStr}`;
+      
+      tooltip.innerText = text;
+      tooltip.classList.remove('hidden');
+      const rect = cell.getBoundingClientRect();
+      tooltip.style.left = `${rect.left + rect.width / 2}px`;
+      tooltip.style.top = `${rect.top - 8}px`;
+    });
+
+    cell.addEventListener('mouseleave', () => {
+      tooltip.classList.add('hidden');
+    });
+
+    container.appendChild(cell);
+  });
+
+  // Render month header labels
+  if (monthLabelsEl) {
+    monthLabelsEl.innerHTML = '';
+    const numCols = Math.ceil(days.length / 7);
+    const colWidth = 13; // 10px cell + 3px gap
+    monthPositions.forEach(mp => {
+      const span = document.createElement('span');
+      span.innerText = mp.month;
+      span.style.position = 'absolute';
+      span.style.left = `${mp.colIndex * colWidth}px`;
+      monthLabelsEl.appendChild(span);
+    });
+  }
+}
+
+function switchHeatmapYear(year) {
+  currentHeatmapYear = year;
+  const buttons = document.querySelectorAll('.gh-year-btn');
+  buttons.forEach(btn => {
+    if (btn.getAttribute('data-year') === year) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  if (window._ghContributionsData) {
+    renderHeatmap(window._ghContributionsData, year);
+  }
+}
+
 // Window Load Initialization
 window.addEventListener('DOMContentLoaded', () => {
   setupContactForm();
   initScrollMonitorZoom();
+  initGitHubHeatmap();
+  initScrollDominoObserver();
 
   // Escape key shortcut to exit fullscreen and return to Home
   window.addEventListener('keydown', (e) => {

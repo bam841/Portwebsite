@@ -41,7 +41,7 @@
       <div class="contour-circle-2"></div>
 
       <!-- Top Navigation Header Inside Hero -->
-      <header class="relative z-30 w-full max-w-7xl mx-auto flex items-center justify-between pt-8 px-6 sm:px-10 lg:px-12" data-purpose="top-navigation-bar">
+      <header class="relative z-30 w-full max-w-7xl mx-auto flex items-center justify-between pt-8 px-6 sm:px-10 lg:px-12 domino-item-down domino-d-1 domino-active" data-purpose="top-navigation-bar">
         <!-- Brand Logo -->
         <a aria-label="Homepage" class="flex items-center gap-2 text-white group cursor-pointer" onclick="switchTab('home')">
           <span class="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm font-black border border-white/30 group-hover:scale-105 transition-transform">B</span>
@@ -66,20 +66,42 @@
         <div class="w-1/2 h-full bg-white relative rounded-tl-[48px] pointer-events-auto shadow-[-20px_0_40px_rgba(0,0,0,0.06)]"></div>
       </div>
 
+      <!-- Central Hero Cutout Portrait (Bridging Orange & Pure White Split Fold) -->
+      <div class="hidden md:flex absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex-col items-center justify-end pointer-events-none select-none h-[540px] sm:h-[600px] md:h-[650px] lg:h-[720px] xl:h-[760px] 2xl:h-[800px] max-h-[86vh]" data-purpose="hero-portrait-center">
+        <!-- Ambient Warm Rim Lighting Aura (Blooms smoothly) -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-[380px] lg:w-[480px] h-[420px] lg:h-[540px] rounded-full bg-gradient-to-t from-orange-500/25 via-orange-400/10 to-transparent blur-3xl pointer-events-none aura-bloom domino-d-pic domino-active"></div>
+
+        <!-- The Portrait Cutout Container (POPS IN smoothly with spring curve) -->
+        <div class="relative h-full flex items-end justify-center picture-pop-in domino-d-pic domino-active">
+          <img 
+            alt="{{ profile.name }} portrait" 
+            class="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_28px_55px_rgba(0,0,0,0.28)] select-none pointer-events-none transition-transform duration-500 hover:scale-[1.01] portrait-cutout" 
+            src="{{ profile.hero_image or url_for('static', filename='img/newprofile_centered.png') }}"
+          />
+
+          <!-- Floating Identity Pill (Pops onto the portrait) -->
+          <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-4 py-1.5 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap z-30 pointer-events-auto transition-transform duration-300 hover:scale-105 cursor-default pill-pop-in domino-d-pill domino-active">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] font-black uppercase tracking-wider text-slate-800">{{ profile.display_name }}</span>
+            <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider hidden lg:inline">• Full-Stack</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Hero Content Container -->
       <div class="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 h-full items-center px-6 sm:px-10 lg:px-12 pb-12 pt-6 pointer-events-none my-auto">
         
         <!-- Left Column (Over Orange Field) -->
         <div class="md:col-span-5 flex flex-col justify-center items-start pt-6 md:pt-10 pointer-events-auto" data-purpose="hero-left-copy">
-          <h1 class="font-bebas text-white text-[96px] sm:text-[124px] md:text-[144px] lg:text-[168px] tracking-tight mb-2 select-none drop-shadow-sm">
+          <h1 class="font-bebas text-white text-[96px] sm:text-[124px] md:text-[144px] lg:text-[168px] tracking-tight mb-2 select-none drop-shadow-sm domino-item domino-d-2 domino-active">
             {{ profile.headline }}
           </h1>
-          <p class="text-white/95 text-base md:text-[17px] font-medium leading-relaxed max-w-xs mb-8">
+          <p class="text-white/95 text-base md:text-[17px] font-medium leading-relaxed max-w-xs mb-8 domino-item domino-d-3 domino-active">
             Designs that inspire.<br/>Ideas that connect.
           </p>
 
           <!-- CTA Button -->
-          <button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group mb-14 cursor-pointer" onclick="switchTab('work')">
+          <button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group mb-14 cursor-pointer domino-item domino-d-4 domino-active" onclick="switchTab('work')">
             <span>View Work</span>
             <svg class="w-3.5 h-3.5 stroke-current stroke-2 fill-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24">
               <line x1="7" x2="17" y1="17" y2="7"></line>
@@ -88,7 +110,7 @@
           </button>
 
           <!-- Social Proof / Trust Line -->
-          <div class="flex flex-col gap-2.5" data-purpose="social-proof-ratings">
+          <div class="flex flex-col gap-2.5 domino-item domino-d-5 domino-active" data-purpose="social-proof-ratings">
             <div class="flex items-center -space-x-2">
               <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-800 text-white flex items-center justify-center text-xs font-bold shadow-sm">Py</div>
               <div class="w-8 h-8 rounded-full border-2 border-[#E64A00] bg-orange-700 text-white flex items-center justify-center text-xs font-bold shadow-sm">JS</div>
@@ -104,79 +126,159 @@
           </div>
         </div>
 
-        <!-- Center Spacer Column -->
-        <div class="hidden md:block md:col-span-1"></div>
+        <!-- Center Spacer Column (Reserves breathing room for Central Portrait on Desktop) -->
+        <div class="hidden md:block md:col-span-2"></div>
 
-        <!-- Right Column (Over White Field - Side Layout with Description Below Picture) -->
-        <div class="md:col-span-6 flex flex-col items-center md:items-end justify-center w-full max-w-[420px] lg:max-w-[460px] mx-auto md:ml-auto h-full pt-14 md:pt-16 pb-4 pointer-events-auto" data-purpose="hero-right-details">
+        <!-- Right Column (Over Pure White Field) -->
+        <div class="md:col-span-5 flex flex-col justify-between items-start md:items-end h-full pt-10 md:pt-16 pb-4 pointer-events-auto ml-auto text-left" data-purpose="hero-right-details">
           
           <!-- Top Status Header -->
-          <div class="w-full flex items-center justify-between mb-3 px-1" data-purpose="availability-badge">
-            <div class="flex items-center gap-2">
+          <div class="w-full max-w-[320px] lg:max-w-[340px] mb-6 md:mb-10 domino-item domino-d-6 domino-active" data-purpose="availability-badge">
+            <div class="flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-orange-600 mb-1.5">
               <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Available For Projects &amp; Roles</span>
+              <span>Available For Projects &amp; Roles</span>
             </div>
-            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline">National University</span>
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest block">National University • Philippines</span>
           </div>
 
-          <!-- Single Unified Frame: Picture on Top, Description Below (Same Frame) -->
-          <div class="w-full rounded-3xl bg-white border border-slate-200/90 shadow-xl overflow-hidden p-3 sm:p-4 flex flex-col transition-all duration-300 hover:shadow-2xl hover:border-orange-200" data-purpose="hero-unified-card">
-            
-            <!-- 1. Top Section: Picture -->
-            <div class="w-full h-[240px] sm:h-[270px] md:h-[290px] rounded-2xl overflow-hidden bg-gradient-to-b from-slate-50 via-white to-orange-50/20 border border-slate-100 flex items-end justify-center relative group shrink-0">
-              <div class="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-orange-500/10 blur-xl pointer-events-none"></div>
-              
-              <!-- Full Portrait Image: object-contain guarantees full body visibility with zero facial crop -->
+          <!-- Mobile Hero Portrait (Displayed in natural document flow on mobile screens) -->
+          <div class="block md:hidden w-full my-6 flex flex-col items-center justify-center relative select-none picture-pop-in domino-d-pic domino-active" data-purpose="hero-portrait-mobile">
+            <div class="relative w-full max-w-[280px] h-[350px] flex items-end justify-center">
+              <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-orange-200/50 to-transparent blur-xl pointer-events-none aura-bloom domino-d-pic domino-active"></div>
               <img 
                 alt="{{ profile.name }} portrait" 
-                class="w-full h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-[1.02]" 
-                src="{{ profile.hero_image or url_for('static', filename='img/newprofile_full.png') }}"
+                class="h-full w-auto object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)] portrait-cutout" 
+                src="{{ profile.hero_image or url_for('static', filename='img/newprofile_centered.png') }}"
               />
-
-              <!-- Bottom subtle card accent -->
-              <div class="absolute bottom-2 inset-x-2.5 bg-white/95 backdrop-blur-md border border-slate-100 py-1 px-3 rounded-lg flex items-center justify-between shadow-sm">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span class="text-[11px] font-extrabold text-slate-900 tracking-tight">{{ profile.display_name }}</span>
-                </div>
-                <span class="text-[9px] font-bold text-orange-600 uppercase tracking-wider">Full-Stack</span>
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5 whitespace-nowrap pill-pop-in domino-d-pill domino-active">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[10px] font-black uppercase tracking-wider text-slate-800">{{ profile.display_name }}</span>
               </div>
             </div>
+          </div>
 
-            <!-- 2. Bottom Section: Description (Inside the Same Frame, with Big Typography) -->
-            <div class="pt-4 pb-1 px-2 text-left">
-              <div class="text-orange-600 font-serif text-3xl font-black leading-none mb-1.5">“</div>
-              <p class="text-base sm:text-lg md:text-[19px] font-bold text-slate-800 leading-snug tracking-tight mb-3">
-                {{ testimonial.quote }}
-              </p>
-              <div class="flex items-center justify-between pt-2.5 border-t border-slate-100">
-                <div>
-                  <span class="text-xs font-black uppercase tracking-wider text-slate-900 block">
-                    {{ testimonial.author }}
-                  </span>
-                  <span class="text-[11px] text-slate-500 font-medium block">
-                    {{ testimonial.role }}
-                  </span>
+          <!-- Description / Testimonial in a Frame -->
+          <div class="w-full max-w-[340px] lg:max-w-[360px] rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-orange-200 p-5 relative z-20 text-left transition-all duration-300 domino-item domino-d-7 domino-active" data-purpose="testimonial-card">
+            <div class="flex items-start gap-3.5">
+              <div class="text-orange-600 font-serif text-3xl font-black leading-none shrink-0 select-none">“</div>
+              <div class="flex-1">
+                <p class="text-sm sm:text-base font-bold text-slate-800 leading-snug tracking-tight mb-3">
+                  {{ testimonial.quote }}
+                </p>
+                <div class="flex items-center justify-between pt-2.5 border-t border-slate-100">
+                  <div>
+                    <span class="text-xs font-black uppercase tracking-wider text-slate-900 block">
+                      {{ testimonial.author }}
+                    </span>
+                    <span class="text-[11px] text-slate-500 font-medium block">
+                      {{ testimonial.role }}
+                    </span>
+                  </div>
+                  <img alt="Endorsement" class="w-7 h-7 rounded-full object-cover ring-2 ring-orange-500/20" src="{{ testimonial.avatar }}"/>
                 </div>
-                <img alt="Endorsement" class="w-7 h-7 rounded-full object-cover ring-2 ring-orange-500/20" src="{{ testimonial.avatar }}"/>
               </div>
             </div>
-
           </div>
 
         </div>
 
       </div>
 
-      <!-- Floating scroll prompt -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 pointer-events-auto cursor-pointer group" onclick="scrollToAboutMonitor()">
-        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 group-hover:text-orange-600 transition-colors">Scroll to explore Workstation</span>
+      <!-- Floating scroll prompt (Desktop - Bottom Right) -->
+      <div class="absolute bottom-4 right-8 sm:right-12 lg:right-16 z-30 hidden md:flex items-center gap-2 pointer-events-auto cursor-pointer group bg-white/85 hover:bg-white backdrop-blur-md px-4 py-2 rounded-full border border-slate-200/80 shadow-sm transition-all duration-300 domino-item domino-d-scroll domino-active" onclick="scrollToAboutMonitor()">
+        <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 group-hover:text-orange-600 transition-colors">Explore Workstation</span>
+        <div class="w-4 h-4 rounded-full bg-orange-600 text-white flex items-center justify-center text-[10px]">
+          ↓
+        </div>
+      </div>
+
+      <!-- Floating scroll prompt (Mobile - Centered) -->
+      <div class="flex md:hidden flex-col items-center gap-1.5 pb-6 pt-2 pointer-events-auto cursor-pointer group domino-item domino-d-scroll domino-active" onclick="scrollToAboutMonitor()">
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 group-hover:text-orange-600 transition-colors">Scroll to explore</span>
         <div class="w-5 h-8 rounded-full border border-slate-300 flex items-start justify-center p-1 bg-white/70 backdrop-blur-sm shadow-sm">
           <span class="w-1 h-2 rounded-full bg-orange-600 animate-bounce"></span>
         </div>
       </div>
     </div>
     <!-- END: SECTION A -->
+
+    <!-- ============================================================== -->
+    <!-- LIVE GITHUB CONTRIBUTIONS & COMMIT ACTIVITY DECK               -->
+    <!-- Positioned directly underneath the central hero portrait       -->
+    <!-- ============================================================== -->
+    <div class="relative z-30 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-14 mb-12 pointer-events-auto domino-item domino-d-deck" data-purpose="github-contributions-deck">
+      <div class="gh-heatmap-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-white/10 shadow-2xl relative overflow-hidden transition-all duration-300">
+        
+        <!-- Top Console Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-white/10 mb-3">
+          <div class="flex items-center gap-3 flex-wrap">
+            <!-- Live Indicator -->
+            <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400">Live GitHub Feed</span>
+            </div>
+            <!-- Total count -->
+            <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight" id="gh-total-count">
+              331 contributions in the last year
+            </h3>
+          </div>
+
+          <!-- Right Controls: Profile link and Year toggles -->
+          <div class="flex items-center gap-2 self-end sm:self-auto">
+            <a href="{{ socials.github or 'https://github.com/bam841' }}" target="_blank" rel="noopener noreferrer" class="text-[11px] font-mono text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-1.5 mr-2" title="View GitHub Profile">
+              <span>@bam841</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <div class="flex items-center gap-1 bg-white/5 p-0.5 rounded-lg border border-white/10 text-[10px]">
+              <button class="gh-year-btn active px-2.5 py-1 rounded-md transition cursor-pointer" data-year="2026" onclick="switchHeatmapYear('2026')">2026</button>
+              <button class="gh-year-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition cursor-pointer" data-year="2025" onclick="switchHeatmapYear('2025')">2025</button>
+              <button class="gh-year-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition cursor-pointer" data-year="2024" onclick="switchHeatmapYear('2024')">2024</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Calendar Matrix Heatmap -->
+        <div class="overflow-x-auto screen-scrollbar py-2">
+          <div class="inline-block min-w-[700px]">
+            <!-- Month Labels -->
+            <div class="gh-month-labels relative h-4 ml-8" id="gh-month-labels"></div>
+
+            <!-- Matrix with Day Labels on Left -->
+            <div class="flex items-start gap-2">
+              <div class="gh-weekday-labels">
+                <span></span>
+                <span>Mon</span>
+                <span></span>
+                <span>Wed</span>
+                <span></span>
+                <span>Fri</span>
+                <span></span>
+              </div>
+              <div class="gh-grid-matrix" id="gh-heatmap-matrix">
+                <!-- Populated dynamically via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer: Legend & Info -->
+        <div class="flex items-center justify-between text-[10px] text-slate-400 pt-3 border-t border-white/10 mt-2">
+          <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">
+            Learn how we count contributions
+          </a>
+          <div class="flex items-center gap-1.5">
+            <span>Less</span>
+            <div class="gh-cell gh-lvl-0"></div>
+            <div class="gh-cell gh-lvl-1"></div>
+            <div class="gh-cell gh-lvl-2"></div>
+            <div class="gh-cell gh-lvl-3"></div>
+            <div class="gh-cell gh-lvl-4"></div>
+            <span>More</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- ============================================================== -->
     <!-- SECTION B: INTERACTIVE 3D MONITOR / ABOUT ME SECTION           -->

@@ -28,6 +28,7 @@
               glow: 'rgba(255, 107, 0, 0.45)',
             }
           }
+          
         }
       }
     }
@@ -205,120 +206,73 @@
           Designs that inspire.<br/>Ideas that connect.
         </p>
 <!-- CTA Button -->
-<div class="flex items-center gap-3 mb-6">
-  <button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer" data-purpose="hero-cta-button" onclick="switchTab('work')">
-    <span>View Work</span>
-    <svg class="w-3.5 h-3.5 stroke-current stroke-2 fill-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewbox="0 0 24 24">
-      <line x1="7" x2="17" y1="17" y2="7"></line>
-      <polyline points="7 7 17 7 17 17"></polyline>
-    </svg>
-  </button>
-  <button class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/30 font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" onclick="switchTab('contact')">
-    <span>Get in Touch</span>
-  </button>
+<button class="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full glow-button transition-all duration-300 hover:scale-105 active:scale-95 group mb-14 cursor-pointer" data-purpose="hero-cta-button" onclick="switchTab('work')">
+<span>View Work</span>
+<svg class="w-3.5 h-3.5 stroke-current stroke-2 fill-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewbox="0 0 24 24">
+<line x1="7" x2="17" y1="17" y2="7"></line>
+<polyline points="7 7 17 7 17 17"></polyline>
+</svg>
+</button>
+<!-- Social Proof: Avatar Stack & Trust Line -->
+<div class="flex flex-col gap-2.5" data-purpose="social-proof-ratings">
+<div class="flex items-center gap-1.5 flex-wrap">
+  <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-[11px] font-mono font-semibold border border-white/20">Py</span>
+  <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-[11px] font-mono font-semibold border border-white/20">JS</span>
+  <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-[11px] font-mono font-semibold border border-white/20">C++</span>
+  <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-[11px] font-mono font-semibold border border-white/20">SQL</span>
+  <span class="px-2 py-0.5 rounded-full bg-white/10 text-white/80 text-[10px] font-mono">+4</span>
 </div>
-
-<!-- Real Engineering Credentials Strip (Grounded, NOT Vibe-Coded) -->
-<div class="w-full max-w-md pt-5 border-t border-white/20" data-purpose="credentials-spec-sheet">
-  <div class="grid grid-cols-3 gap-2.5 mb-3.5">
-    <div class="bg-white/10 backdrop-blur-md rounded-xl p-2.5 sm:p-3 border border-white/20">
-      <span class="text-[9px] sm:text-[10px] font-bold text-white/70 uppercase tracking-widest block">Education</span>
-      <span class="text-base sm:text-lg font-black text-white block mt-0.5">BS CS</span>
-      <span class="text-[9px] sm:text-[10px] text-white/80 font-medium truncate block">National Univ</span>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md rounded-xl p-2.5 sm:p-3 border border-white/20">
-      <span class="text-[9px] sm:text-[10px] font-bold text-white/70 uppercase tracking-widest block">Coding</span>
-      <span class="text-base sm:text-lg font-black text-white block mt-0.5">4+ Years</span>
-      <span class="text-[9px] sm:text-[10px] text-white/80 font-medium truncate block">Full-Stack</span>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md rounded-xl p-2.5 sm:p-3 border border-white/20">
-      <span class="text-[9px] sm:text-[10px] font-bold text-white/70 uppercase tracking-widest block">Built</span>
-      <span class="text-base sm:text-lg font-black text-white block mt-0.5">24+</span>
-      <span class="text-[9px] sm:text-[10px] text-white/80 font-medium truncate block">Web &amp; Systems</span>
-    </div>
-  </div>
-  <div class="flex items-center gap-1.5 flex-wrap">
-    <span class="text-[10px] font-black uppercase tracking-wider text-white/60 mr-1">Stacks:</span>
-    <span class="px-2 py-0.5 rounded-md bg-white/15 text-white text-[10px] sm:text-[11px] font-mono font-semibold">Python</span>
-    <span class="px-2 py-0.5 rounded-md bg-white/15 text-white text-[10px] sm:text-[11px] font-mono font-semibold">JavaScript</span>
-    <span class="px-2 py-0.5 rounded-md bg-white/15 text-white text-[10px] sm:text-[11px] font-mono font-semibold">Java</span>
-    <span class="px-2 py-0.5 rounded-md bg-white/15 text-white text-[10px] sm:text-[11px] font-mono font-semibold">C++</span>
-    <span class="px-2 py-0.5 rounded-md bg-white/15 text-white text-[10px] sm:text-[11px] font-mono font-semibold">SQL</span>
-  </div>
+<span class="text-white/85 text-[11px] font-medium tracking-tight">
+  Trusted by collaborators, clients, and fellow engineers.
+</span>
 </div>
 </div>
 <!-- Center Spacer Column -->
 <div class="hidden md:block md:col-span-1"></div>
-<!-- Right Column (Over White Field - Balanced Dual-Card Layout) -->
-<div class="md:col-span-6 flex flex-col xl:flex-row items-center xl:items-end justify-center xl:justify-end gap-5 h-full pt-12 md:pt-14 pb-4 pointer-events-auto ml-auto" data-purpose="hero-right-details">
-  <!-- Left of Right Pane: Featured Project Spotlight Card -->
-  <div class="w-full max-w-[270px] bg-slate-50 border border-slate-200/90 rounded-3xl p-4 shadow-lg flex-col justify-between hidden 2xl:flex h-[420px] shrink-0 text-left transition-all duration-300 hover:shadow-xl hover:border-orange-200" data-purpose="hero-featured-project">
-    <div>
-      <div class="flex items-center justify-between mb-2.5">
-        <span class="text-[10px] font-black text-orange-600 uppercase tracking-wider bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200/60">Featured Build</span>
-        <span class="text-[10px] font-mono text-slate-400">2024</span>
-      </div>
-      <div class="w-full h-28 rounded-2xl overflow-hidden bg-slate-900 mb-2.5 border border-slate-200 relative group">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Portwebsite preview" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
-        <div class="absolute inset-0 bg-slate-900/20"></div>
-      </div>
-      <h3 class="text-sm font-black text-slate-900 leading-snug mb-1">Portwebsite — 3D Workstation</h3>
-      <p class="text-[11px] text-slate-500 leading-relaxed mb-2.5 line-clamp-3">
-        Interactive 3D monitor experience powered by Flask, SQLite3, and custom animation engine.
-      </p>
+<!-- Right Column (Over White Field - Frameless Big Picture Above Description Frame) -->
+<div class="md:col-span-6 flex flex-col items-center justify-center w-full max-w-[540px] lg:max-w-[600px] xl:max-w-[620px] mx-auto md:ml-auto h-full pt-10 md:pt-14 pb-4 pointer-events-auto" data-purpose="hero-right-details">
+
+  <!-- Top Status Header -->
+  <div class="w-full flex items-center justify-between mb-2 px-1" data-purpose="availability-badge">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Available For Projects &amp; Roles</span>
     </div>
-    <div class="pt-2.5 border-t border-slate-200/80 flex items-center justify-between">
-      <div class="flex gap-1 text-[9px] font-mono text-slate-600">
-        <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200">Python</span>
-        <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200">Flask</span>
-        <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200">SQLite</span>
-      </div>
-      <a href="https://github.com/bam841" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-orange-600 text-xs font-bold transition flex items-center gap-1">
-        <span>Code</span>
-        <span>↗</span>
-      </a>
-    </div>
+    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline">National University</span>
   </div>
-  <!-- Right of Right Pane: Single Unified Frame (User's Exact Requested Structure) -->
-  <div class="w-full max-w-[340px] sm:max-w-[370px] flex flex-col shrink-0">
-    <div class="w-full flex items-center justify-between mb-2.5 px-1" data-purpose="availability-badge">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Available For Projects &amp; Roles</span>
-      </div>
-      <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline">National Univ</span>
-    </div>
-    <div class="w-full rounded-3xl bg-white border border-slate-200/90 shadow-xl overflow-hidden p-3 sm:p-3.5 flex flex-col transition-all duration-300 hover:shadow-2xl hover:border-orange-200" data-purpose="hero-unified-card">
-      <div class="w-full h-[220px] sm:h-[250px] md:h-[270px] rounded-2xl overflow-hidden bg-gradient-to-b from-slate-50 via-white to-orange-50/20 border border-slate-100 flex items-end justify-center relative group shrink-0">
-        <div class="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-orange-500/10 blur-xl pointer-events-none"></div>
-        <img alt="John Abrahm Zapico portrait" class="w-full h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-[1.02]" src="static/img/newprofile_full.png"/>
-        <div class="absolute bottom-2 inset-x-2.5 bg-white/95 backdrop-blur-md border border-slate-100 py-1 px-3 rounded-lg flex items-center justify-between shadow-sm">
-          <div class="flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-[11px] font-extrabold text-slate-900 tracking-tight">Bam Zapico</span>
-          </div>
-          <span class="text-[9px] font-bold text-orange-600 uppercase tracking-wider">Full-Stack</span>
-        </div>
-      </div>
-      <div class="pt-3.5 pb-1 px-1.5 text-left">
-        <div class="text-orange-600 font-serif text-3xl font-black leading-none mb-1">“</div>
+
+  <!-- 1. Frameless Big Picture: Taller & Wider, No Frame/Border, Full Unzoomed Portrait -->
+  <div class="w-full h-[310px] sm:h-[360px] md:h-[390px] lg:h-[430px] flex items-end justify-center select-none relative -mb-2 z-10" data-purpose="hero-portrait-frameless">
+    <img 
+      alt="John Abrahm Zapico portrait" 
+      class="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.14)] select-none pointer-events-none transition-transform duration-500 hover:scale-[1.01]" 
+      src="static/img/newprofile_full.png"
+    />
+  </div>
+
+  <!-- 2. Description in a Frame (Sitting Below the Frameless Picture) -->
+  <div class="w-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-orange-200 p-4 sm:p-5 relative z-20 text-left transition-all duration-300" data-purpose="testimonial-card">
+    <div class="flex items-start gap-3.5">
+      <div class="text-orange-600 font-serif text-3xl font-black leading-none shrink-0 select-none">“</div>
+      <div class="flex-1">
         <p class="text-sm sm:text-base md:text-[17px] font-bold text-slate-800 leading-snug tracking-tight mb-3">
           Bam brings remarkable passion, technical skill, and an eye for clean UI to every project he takes on.
         </p>
         <div class="flex items-center justify-between pt-2.5 border-t border-slate-100">
           <div>
-            <span class="text-[11px] font-black uppercase tracking-wider text-slate-900 block">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-900 block">
               National University
             </span>
-            <span class="text-[10px] text-slate-500 font-medium block">
+            <span class="text-[11px] text-slate-500 font-medium block">
               Computer Science Review
             </span>
           </div>
-          <img alt="Endorsement" class="w-6 h-6 rounded-full object-cover ring-2 ring-orange-500/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu1ErPLbhA9eeO8z1s2kkB6Y_njHTqAVLz8Q0tALtdpJw6UGogfrusBmVFHpgUD0VFlWolM1xTyEmENG6p3W30PqDnrKlJhRKF-lx2sIC9ZRlj85tFIsOecVPtMXkdH0teqbsJ7qp1slgutF2ZtQ50M175TXWp6LTk-WZ6SI-0U_YGvGcVTLIIoCfY2BT-w1xmsrip3KIk4Gu7mRH5G3T4MYgxXdNdYdkVCYXILGU"/>
+          <img alt="Endorsement" class="w-7 h-7 rounded-full object-cover ring-2 ring-orange-500/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu1ErPLbhA9eeO8z1s2kkB6Y_njHTqAVLz8Q0tALtdpJw6UGogfrusBmVFHpgUD0VFlWolM1xTyEmENG6p3W30PqDnrKlJhRKF-lx2sIC9ZRlj85tFIsOecVPtMXkdH0teqbsJ7qp1slgutF2ZtQ50M175TXWp6LTk-WZ6SI-0U_YGvGcVTLIIoCfY2BT-w1xmsrip3KIk4Gu7mRH5G3T4MYgxXdNdYdkVCYXILGU"/>
         </div>
       </div>
     </div>
   </div>
+
 </div>
 </div>
 <!-- END: Hero Content Container -->
