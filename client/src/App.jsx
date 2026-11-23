@@ -6,6 +6,10 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [activeYear, setActiveYear] = useState("2026");
+  
+  // Interactive 3D Monitor Workstation State
+  const [monitorState, setMonitorState] = useState("angled"); // 'angled', 'front', 'tilt'
+  const [isMonitorFullscreen, setIsMonitorFullscreen] = useState(false);
 
   // Optional live fetch from serverless API
   useEffect(() => {
@@ -33,6 +37,11 @@ export default function App() {
   const switchTab = (tab) => {
     setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToAboutMonitor = () => {
+    const el = document.getElementById("section-about-monitor");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -119,7 +128,7 @@ export default function App() {
                   WORK
                 </button>
                 <button
-                  onClick={() => switchTab("about")}
+                  onClick={scrollToAboutMonitor}
                   className="nav-btn hover:text-orange-600 transition-colors uppercase cursor-pointer border-none bg-transparent"
                 >
                   ABOUT
@@ -285,27 +294,25 @@ export default function App() {
 
               </div>
             </div>
-          </div>
 
-          {/* ============================================================== */}
-          {/* METRICS & QUICK SUMMARY CARDS                                 */}
-          {/* ============================================================== */}
-          <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 -mt-8 relative z-30 mb-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-              {metrics?.map((m, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-100 shadow-md hover:shadow-lg transition-all duration-200">
-                  <div className="text-2xl sm:text-3xl font-black text-orange-600 tracking-tight">{m.value}</div>
-                  <div className="text-xs font-extrabold uppercase tracking-wider text-slate-800 mt-1">{m.label}</div>
-                  <div className="text-[11px] text-slate-400 font-medium">{m.detail}</div>
-                </div>
-              ))}
+            {/* Floating scroll prompt to Workstation */}
+            <div
+              onClick={scrollToAboutMonitor}
+              className="absolute bottom-4 right-8 sm:right-12 lg:right-16 z-30 hidden md:flex items-center gap-2 pointer-events-auto cursor-pointer group bg-white/85 hover:bg-white backdrop-blur-md px-4 py-2 rounded-full border border-slate-200/80 shadow-sm transition-all duration-300"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 group-hover:text-orange-600 transition-colors">
+                Explore Workstation
+              </span>
+              <div className="w-4 h-4 rounded-full bg-orange-600 text-white flex items-center justify-center text-[10px]">
+                ↓
+              </div>
             </div>
           </div>
 
           {/* ============================================================== */}
           {/* LIVE GITHUB ACTIVITY DECK                                      */}
           {/* ============================================================== */}
-          <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-30">
+          <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-14 mb-12 relative z-30">
             <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 bg-[#11141c] border border-white/10 shadow-2xl">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-white/10 mb-4">
                 <div className="flex items-center gap-3">
@@ -314,7 +321,7 @@ export default function App() {
                     <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400">Live GitHub Feed</span>
                   </div>
                   <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight">
-                    331+ contributions across repositories
+                    331+ contributions in the last year
                   </h3>
                 </div>
 
@@ -372,66 +379,315 @@ export default function App() {
           </div>
 
           {/* ============================================================== */}
-          {/* FEATURED WORK PREVIEW SECTION                                  */}
+          {/* SECTION B: INTERACTIVE 3D MONITOR / ABOUT ME WORKSTATION       */}
           {/* ============================================================== */}
-          <section className="w-full bg-white py-16 px-6 sm:px-10 lg:px-12 border-t border-slate-100">
-            <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-slate-100 gap-4">
+          <section
+            id="section-about-monitor"
+            className={`relative w-full min-h-screen bg-[#0d0f14] overflow-hidden flex flex-col items-center justify-center py-16 px-0 border-t border-white/5 transition-all duration-700 ${
+              isMonitorFullscreen ? "is-fullscreen !p-0 !border-t-transparent" : ""
+            }`}
+          >
+            {/* Deep Ambient Glow & Giant Watermark */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="ambient-orange-spotlight absolute top-12 left-1/2 -translate-x-1/2 w-[980px] h-[700px] blur-3xl opacity-60"></div>
+              <div className="absolute -bottom-20 right-10 w-[500px] h-[500px] rounded-full bg-orange-600/10 blur-[130px]"></div>
+              <div className="absolute top-8 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.035] whitespace-nowrap font-syne text-[18vw] font-black text-orange-500 tracking-tighter">
+                BAM
+              </div>
+            </div>
+
+            <div className="relative z-20 w-full flex flex-col items-center justify-center">
+              
+              {/* Section Intro & Perspective Controls Bar */}
+              <div
+                className={`monitor-intro-bar w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6 mb-6 ${
+                  isMonitorFullscreen ? "is-hidden" : ""
+                }`}
+              >
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-orange-600">Selected Work</span>
-                  <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">Featured Projects</h2>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
+                    <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                    <span>Interactive 3D Workstation Experience</span>
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    Workstation &amp; Profile OS
+                  </h2>
+                  <p className="text-slate-400 text-sm mt-1 max-w-lg">
+                    Explore Bam’s background narrative, core development toolchain, projects timeline, and academic competencies inside the display.
+                  </p>
                 </div>
-                <button
-                  onClick={() => switchTab("work")}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 hover:text-orange-700 transition cursor-pointer border-none bg-transparent"
-                >
-                  <span>Explore all projects</span>
-                  <span>→</span>
-                </button>
+
+                {/* 3D Perspective Buttons */}
+                <div className="flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
+                  <button
+                    onClick={() => setMonitorState("angled")}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border-none ${
+                      monitorState === "angled"
+                        ? "text-white bg-orange-600 shadow-md"
+                        : "text-slate-300 hover:text-white hover:bg-white/10 bg-transparent"
+                    }`}
+                  >
+                    Perspective 3D
+                  </button>
+                  <button
+                    onClick={() => setMonitorState("front")}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border-none ${
+                      monitorState === "front"
+                        ? "text-white bg-orange-600 shadow-md"
+                        : "text-slate-300 hover:text-white hover:bg-white/10 bg-transparent"
+                    }`}
+                  >
+                    Front Facing
+                  </button>
+                  <button
+                    onClick={() => setMonitorState("tilt")}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border-none ${
+                      monitorState === "tilt"
+                        ? "text-white bg-orange-600 shadow-md"
+                        : "text-slate-300 hover:text-white hover:bg-white/10 bg-transparent"
+                    }`}
+                  >
+                    Tilt View
+                  </button>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {projects?.slice(0, 3).map((proj) => (
-                  <article key={proj.id} className="group rounded-3xl bg-slate-900 text-white overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-slate-800 flex flex-col justify-between">
-                    <div>
-                      <div className="relative overflow-hidden aspect-[16/10] bg-slate-950">
-                        <img
-                          alt={proj.title}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
-                          src={proj.image}
-                        />
-                        <div className="absolute top-4 left-4 flex gap-2">
-                          <span className="bg-black/70 backdrop-blur-md text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-orange-500/20">
-                            {proj.category}
-                          </span>
+              {/* 3D Monitor Viewport */}
+              <div
+                className={`monitor-viewport w-full max-w-[1080px] flex flex-col items-center select-none ${
+                  isMonitorFullscreen ? "is-fullscreen" : ""
+                }`}
+              >
+                
+                {/* The Monitor Unit (Screen + Bezel) */}
+                <div
+                  className={`monitor-assembly monitor-state-${monitorState} w-full bg-[#0a0a0c] p-3.5 sm:p-4 rounded-[30px] border border-white/15 relative overflow-hidden ${
+                    isMonitorFullscreen ? "is-fullscreen" : ""
+                  }`}
+                >
+                  {/* Glass Reflection Sheen */}
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.07] z-30 rounded-[30px]"></div>
+                  {/* Screen Bezel Camera Dot */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-slate-700 ring-1 ring-black z-30"></div>
+
+                  {/* INNER SCREEN DISPLAY */}
+                  <div
+                    className={`screen-inner-scroll w-full bg-[#f8fafc] text-slate-800 rounded-[22px] overflow-hidden shadow-inner flex flex-col border border-slate-200/90 screen-scrollbar overflow-y-auto ${
+                      isMonitorFullscreen ? "is-fullscreen !h-screen !max-h-screen" : ""
+                    }`}
+                  >
+                    
+                    {/* Top Bar Inside Monitor */}
+                    <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between gap-4 shadow-sm">
+                      <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white text-xs font-black">B</span>
+                          <span className="font-extrabold text-slate-900 tracking-tight text-base font-sans">{profile?.name}</span>
+                          <span className="hidden sm:inline-block text-[10px] text-slate-400 font-semibold uppercase tracking-wider border-l border-slate-200 pl-2">Developer OS</span>
                         </div>
+                        <nav className="hidden md:flex items-center gap-5 text-xs font-bold text-slate-600">
+                          <a className="hover:text-orange-600 transition text-orange-600 font-extrabold" href="#os-overview">Overview</a>
+                          <a className="hover:text-orange-600 transition" href="#os-what-i-do">What I Do</a>
+                          <a className="hover:text-orange-600 transition" href="#os-experience">Education &amp; Exp</a>
+                          <a className="hover:text-orange-600 transition" href="#os-skills">Tech Stacks</a>
+                        </nav>
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-white mb-2 line-clamp-1">{proj.title}</h3>
-                        <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4">{proj.description}</p>
-                        <div className="flex flex-wrap gap-1.5 mb-4">
-                          {proj.tags?.map((t, i) => (
-                            <span key={i} className="text-[10px] font-semibold text-slate-300 px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                              {t}
-                            </span>
+
+                      <div className="flex items-center gap-2.5">
+                        {/* Fullscreen Action Toggle */}
+                        <button
+                          onClick={() => setIsMonitorFullscreen(!isMonitorFullscreen)}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-sm cursor-pointer border-none"
+                          title={isMonitorFullscreen ? "Exit Fullscreen" : "Expand to Fullscreen"}
+                        >
+                          <span>{isMonitorFullscreen ? "⤡" : "⤢"}</span>
+                          <span className="hidden sm:inline">{isMonitorFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
+                        </button>
+                        <button
+                          className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-full transition shadow-sm cursor-pointer border-none"
+                          onClick={() => switchTab("contact")}
+                        >
+                          Get in Touch
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Section 1: Bio & Narrative */}
+                    <div className="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-overview">
+                      <div className="max-w-4xl mx-auto">
+                        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 mb-8">
+                          <div className="relative shrink-0">
+                            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden ring-4 ring-orange-500/20 bg-slate-900 shadow-md">
+                              <img
+                                alt={profile?.name}
+                                className="w-full h-full object-cover object-top"
+                                src={profile?.about_image || profile?.avatar || "/static/img/JohnAbrahm.jpg"}
+                                onError={(e) => { e.target.src = profile?.github_avatar || "/static/img/JohnAbrahm.jpg"; }}
+                              />
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-orange-600 text-white font-black text-[9px] uppercase tracking-wider shadow">
+                              BS CS
+                            </div>
+                          </div>
+                          <div>
+                            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-1.5">
+                              <span>{profile?.title}</span>
+                              <span className="text-slate-300">•</span>
+                              <span className="text-slate-500 font-semibold">{profile?.location}</span>
+                            </div>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                              Hi, I’m John Abrahm Zapico. Building seamless digital realities.
+                            </h3>
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-2.5 max-w-2xl font-normal">
+                              {profile?.bio}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Key Metrics Grid inside Monitor */}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2">
+                          {metrics?.map((m, idx) => (
+                            <div
+                              key={idx}
+                              className={`p-4 rounded-xl transition ${
+                                idx === 1
+                                  ? "bg-orange-50/60 border border-orange-200/80"
+                                  : "bg-slate-50 border border-slate-200/70"
+                              } hover:border-orange-200`}
+                            >
+                              <span className={`text-[11px] font-bold ${idx === 1 ? "text-orange-600" : "text-slate-400"} uppercase tracking-wider block`}>
+                                {m.label}
+                              </span>
+                              <span className={`text-2xl sm:text-3xl font-black ${idx === 1 ? "text-orange-600" : "text-slate-900"} mt-1 block`}>
+                                {m.value}
+                              </span>
+                              <span className="text-[11px] text-slate-500 font-medium">{m.detail}</span>
+                            </div>
                           ))}
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 pt-0 border-t border-slate-800/80 mt-auto">
-                      <a
-                        href={proj.github_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-xs font-bold uppercase tracking-wider pt-4"
-                      >
-                        <span>View Repository</span>
-                        <span>↗</span>
-                      </a>
+
+                    {/* Section 2: What I Do / Competencies */}
+                    <div className="p-6 sm:p-10 md:p-12 bg-slate-50/70 border-b border-slate-100" id="os-what-i-do">
+                      <div className="max-w-4xl mx-auto">
+                        <div className="flex items-center justify-between mb-8">
+                          <div>
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600">Core Competencies</span>
+                            <h4 className="text-2xl font-black text-slate-900 tracking-tight mt-0.5">What I Do &amp; How I Build</h4>
+                          </div>
+                          <span className="text-xs font-semibold text-slate-400 hidden sm:inline-block">End-to-End Execution</span>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                          {competencies?.map((comp, idx) => (
+                            <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 transition duration-200">
+                              <div>
+                                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-black text-base mb-4">
+                                  0{idx + 1}
+                                </div>
+                                <h5 className="text-base font-bold text-slate-900 mb-2 leading-snug">{comp.title}</h5>
+                                <p className="text-xs text-slate-600 leading-relaxed mb-4">{comp.description}</p>
+                              </div>
+                              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                                {comp.tags?.map((t, i) => (
+                                  <span key={i} className="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </article>
-                ))}
+
+                    {/* Section 3: Experience & Education */}
+                    <div className="p-6 sm:p-10 md:p-12 bg-white border-b border-slate-100" id="os-experience">
+                      <div className="max-w-4xl mx-auto">
+                        <div className="mb-8">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600">Timeline</span>
+                          <h4 className="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Education &amp; Experience</h4>
+                        </div>
+
+                        <div className="space-y-6">
+                          {experience?.map((exp, idx) => (
+                            <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                              <div>
+                                <div className="text-xs font-bold text-orange-600 uppercase tracking-wider">{exp.period}</div>
+                                <h5 className="text-lg font-extrabold text-slate-900 mt-0.5">{exp.role} • {exp.company}</h5>
+                                <p className="text-xs text-slate-600 mt-1 max-w-xl">{exp.description}</p>
+                              </div>
+                              <div className="shrink-0">
+                                <span className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold">Verified</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Section 4: Skills Matrix inside Monitor */}
+                    <div className="p-6 sm:p-10 md:p-12 bg-slate-50/50" id="os-skills">
+                      <div className="max-w-4xl mx-auto">
+                        <div className="mb-6">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600">Skills Matrix</span>
+                          <h4 className="text-2xl font-black text-slate-900 tracking-tight mt-0.5">Core Technical Stack</h4>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                          <div className="p-5 bg-white rounded-xl border border-slate-200">
+                            <h6 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Programming Languages</h6>
+                            <ul className="space-y-2">
+                              {skills?.languages?.map((sk, idx) => (
+                                <li key={idx} className="flex items-center justify-between text-xs font-medium text-slate-800">
+                                  <span>{sk.name}</span>
+                                  <span className="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{sk.level}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="p-5 bg-white rounded-xl border border-slate-200">
+                            <h6 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Front-End &amp; UI Motion</h6>
+                            <ul className="space-y-2">
+                              {skills?.frontend?.map((sk, idx) => (
+                                <li key={idx} className="flex items-center justify-between text-xs font-medium text-slate-800">
+                                  <span>{sk.name}</span>
+                                  <span className="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{sk.level}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="p-5 bg-white rounded-xl border border-slate-200">
+                            <h6 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Backend &amp; Databases</h6>
+                            <ul className="space-y-2">
+                              {skills?.backend?.map((sk, idx) => (
+                                <li key={idx} className="flex items-center justify-between text-xs font-medium text-slate-800">
+                                  <span>{sk.name}</span>
+                                  <span className="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded">{sk.level}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  {/* END INNER SCREEN */}
+
+                </div>
+
+                {/* Aluminum Stand Assembly */}
+                <div className={`monitor-stand-assembly ${isMonitorFullscreen ? "is-hidden" : ""}`} id="monitor-stand">
+                  <div className="w-24 h-16 aluminum-metal -mt-2 z-10 shadow-lg"></div>
+                  <div className="w-56 h-3 rounded-full aluminum-base z-20"></div>
+                </div>
+
               </div>
+
             </div>
           </section>
 
