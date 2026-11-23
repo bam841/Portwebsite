@@ -1,0 +1,147 @@
+{
+  "profile": {
+    "name": "John Abrahm Zapico",
+    "short_name": "Bam",
+    "display_name": "Bam Zapico",
+    "title": "Creative Full-Stack & UI Developer",
+    "headline": "CREATE",
+    "tagline": "Designs that inspire. Systems that scale.",
+    "sub_tagline": "Turning vision into visual experience. I design & build unique digital products with cinematic UI, high-performance architecture, and modern animation.",
+    "location": "National University • Philippines",
+    "availability": "Available for Freelance & Full-time Roles",
+    "bio": "Hi! I am John Abrahm Zapico, a passionate Computer Science graduate from National University in the Philippines. Coding allows me to create things from scratch and solve problems creatively. Experienced across modern front-end design and back-end database engineering, I build digital experiences that seamlessly bridge aesthetics and functionality.",
+    "avatar": "/static/img/JohnAbrahm.jpg",
+    "desktop_avatar": "/static/img/JohnAbrahm.jpg",
+    "about_image": "/static/img/JohnAbrahm.jpg",
+    "cutout": "/static/img/newprofile_centered.png",
+    "hero_image": "/static/img/newprofile_centered.png",
+    "github_avatar": "https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4",
+    "trust_line": "Trusted by collaborators, clients, and fellow engineers."
+  },
+  "metrics": [
+    {
+      "label": "Education",
+      "value": "BS CS",
+      "detail": "National University"
+    },
+    {
+      "label": "Coding Experience",
+      "value": "4+ Years",
+      "detail": "Academic & Freelance"
+    },
+    {
+      "label": "Projects Built",
+      "value": "24+",
+      "detail": "Web & Systems"
+    },
+    {
+      "label": "Core Stacks",
+      "value": "8+",
+      "detail": "Python, Java, C++, JS, SQL"
+    }
+  ],
+  "skills": {
+    "languages": [
+      {"name": "Python", "level": "Advanced"},
+      {"name": "JavaScript (ES6+)", "level": "Advanced"},
+      {"name": "Java", "level": "Proficient"},
+      {"name": "C++", "level": "Proficient"},
+      {"name": "PHP", "level": "Intermediate"},
+      {"name": "SQL (PostgreSQL / MariaDB)", "level": "Proficient"}
+    ],
+    "frontend": [
+      {"name": "HTML5 / Semantic Web", "level": "Expert"},
+      {"name": "CSS3 / Modern CSS", "level": "Advanced"},
+      {"name": "Tailwind CSS v3", "level": "Advanced"},
+      {"name": "UI Animations & Motion", "level": "Advanced"},
+      {"name": "Responsive Design", "level": "Expert"}
+    ],
+    "backend": [
+      {"name": "Python / Flask", "level": "Advanced"},
+      {"name": "RESTful API Design", "level": "Advanced"},
+      {"name": "PostgreSQL & MariaDB", "level": "Proficient"},
+      {"name": "SQLite Database", "level": "Advanced"},
+      {"name": "Git & GitHub Workflow", "level": "Advanced"}
+    ]
+  },
+  "competencies": [
+    {
+      "title": "Product & Interface Architecture",
+      "description": "High-converting UX/UI workflows, component token systems, and responsive layouts engineered for speed and aesthetic delight.",
+      "tags": ["Tailwind CSS", "UI/UX Architecture", "Mobile First"],
+      "icon": "layout"
+    },
+    {
+      "title": "Full-Stack Python & Web Engineering",
+      "description": "Robust back-end systems using Python (Flask), secure API endpoints, database schema design, and asynchronous client communication.",
+      "tags": ["Python / Flask", "REST APIs", "SQLite / PostgreSQL"],
+      "icon": "server"
+    },
+    {
+      "title": "Systems Programming & Databases",
+      "description": "Strong foundational computer science background in C++, Java, relational database modeling, algorithms, and data structures.",
+      "tags": ["C++", "Java", "PostgreSQL", "MariaDB"],
+      "icon": "database"
+    }
+  ],
+  "projects": [
+    {
+      "id": "portwebsite",
+      "title": "Portwebsite — Interactive Developer Portfolio",
+      "category": "Web Engineering & 3D UI",
+      "year": "2024",
+      "description": "A high-end developer showcase featuring an interactive 3D monitor workstation, smooth tab transitions, and Python Flask backend integration.",
+      "tags": ["Python", "Flask", "Tailwind CSS", "3D Motion", "JavaScript"],
+      "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80",
+      "github_url": "https://github.com/bam841/Portwebsite",
+      "demo_url": "#"
+    },
+    {
+      "id": "enterprise-db",
+      "title": "Academic Database Systems & Management Solutions",
+      "category": "Enterprise Systems",
+      "year": "2023 - 2024",
+      "description": "Relational database models, ACID transaction management, and backend queries developed for academic projects at National University.",
+      "tags": ["PostgreSQL", "MariaDB", "Java", "SQL Architecture"],
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80",
+      "github_url": "https://github.com/bam841",
+      "demo_url": "#"
+    },
+    {
+      "id": "ui-motion-lab",
+      "title": "Cinematic UI & Component Design Systems",
+      "category": "Front-End & Motion",
+      "year": "2024",
+      "description": "Custom CSS keyframe animations, glassmorphic card overlays, responsive navigation components, and dark luxury themes.",
+      "tags": ["CSS3", "JavaScript", "Design Tokens", "Glassmorphism"],
+      "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=80",
+      "github_url": "https://github.com/bam841",
+      "demo_url": "#"
+    }
+  ],
+  "experience": [
+    {
+      "period": "2020 — 2024",
+      "role": "BS in Computer Science",
+      "company": "National University (Philippines)",
+      "description": "Focused on software engineering, object-oriented design, systems programming in C++ and Java, and relational database management."
+    },
+    {
+      "period": "2023 — Present",
+      "role": "Independent Full-Stack Developer",
+      "company": "Freelance & Projects",
+      "description": "Designing and developing bespoke web solutions, portfolio showcases, and backend services with Python, JavaScript, and SQL."
+    }
+  ],
+  "testimonial": {
+    "quote": "Bam brings remarkable passion, technical skill, and an eye for clean UI to every project he takes on.",
+    "author": "NATIONAL UNIVERSITY",
+    "role": "Computer Science Review",
+    "avatar": "https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4"
+  },
+  "socials": {
+    "github": "https://github.com/bam841",
+    "repo": "https://github.com/bam841/Portwebsite",
+    "email": "bam841@users.noreply.github.com"
+  }
+}

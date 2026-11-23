@@ -1,7 +1,8 @@
 {
-  "functions": {
-    "app.py": {
-      "runtime": "python3.11"
-    }
-  }
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/build",
+  "rewrites": [
+    { "source": "/api/portfolio", "destination": "/client/api/portfolio.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
