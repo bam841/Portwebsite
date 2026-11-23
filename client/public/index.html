@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>John Abrahm Zapico (Bam) — Creative Full-Stack &amp; UI Developer</title>
+  <meta name="description" content="Portfolio of John Abrahm Zapico (Bam) — Full-Stack Developer &amp; UI Designer."/>
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/146666020?s=400&u=9c649e20ab48c78e85d2b8212985731d1614b9fc&v=4" type="image/png"/>
+
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Bebas Neue, Plus Jakarta Sans, Inter, Syne -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            syne: ['"Syne"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF5E0E',
+              amber: '#E64A00',
+              deep: '#992B00',
+              glow: 'rgba(255, 107, 0, 0.45)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0b0c0e] min-h-screen text-slate-800 antialiased selection:bg-orange-500 selection:text-white m-0 p-0 overflow-x-hidden">
+  <div id="root"></div>
+</body>
 </html>
